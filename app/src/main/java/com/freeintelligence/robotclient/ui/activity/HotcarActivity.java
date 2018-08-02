@@ -113,6 +113,8 @@ public class HotcarActivity extends BaseActivity {
         rlHotcar.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
+                mList.clear();
+                hotcarAdapter.notifyDataSetChanged();
                 loadData();
                 rlHotcar.refreshComplete();
             }
@@ -140,6 +142,8 @@ public class HotcarActivity extends BaseActivity {
                         cartype = 3;
                         break;
                 }
+                mList.clear();
+                hotcarAdapter.notifyDataSetChanged();
                 loadData();
             }
 
@@ -161,6 +165,8 @@ public class HotcarActivity extends BaseActivity {
                         pricetype = 9;
                         break;
                 }
+                mList.clear();
+                hotcarAdapter.notifyDataSetChanged();
                 loadData();
             }
         });

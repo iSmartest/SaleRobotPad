@@ -132,6 +132,10 @@ public class SecondActivity extends BaseActivity {
                 SecondBean secondBean = gson.fromJson(response, SecondBean.class);
                 if (result.equals("1")) {
                     ToastUtils.makeText(context, resultNote);
+                    tvJiaochevariety.setVisibility(View.GONE);
+                    tvSuvvariety.setVisibility(View.GONE);
+                    tvMpvvariety.setVisibility(View.GONE);
+                    tvPaochevariety.setVisibility(View.GONE);
                     return;
                 }
                 SecondBean.DataBean data = secondBean.getData();
@@ -227,6 +231,8 @@ public class SecondActivity extends BaseActivity {
         rlSecond.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
+                mList.clear();
+                secondAdapter.notifyDataSetChanged();
                 loadData();
                 rlSecond.refreshComplete();
             }
@@ -252,6 +258,8 @@ public class SecondActivity extends BaseActivity {
                         cartype = 3;
                         break;
                 }
+                mList.clear();
+                secondAdapter.notifyDataSetChanged();
                 loadData();
             }
 
@@ -282,6 +290,8 @@ public class SecondActivity extends BaseActivity {
                         pricetype = 6;
                         break;
                 }
+                mList.clear();
+                secondAdapter.notifyDataSetChanged();
                 loadData();
             }
         });

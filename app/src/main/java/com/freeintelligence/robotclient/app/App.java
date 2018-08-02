@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.bulong.rudeness.RudenessScreenHelper;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
@@ -33,6 +34,8 @@ public class App extends Application {
         SpeechUtility.createUtility(App.this, SpeechConstant.APPID + "=5b34af5c");
         AutoLayoutConifg.getInstance().useDeviceSize().init(this);
         getPhoneSign();
+        int designWidth = 1920;
+        new RudenessScreenHelper(this, designWidth).activate();
     }
 
     public static Context getContext() {

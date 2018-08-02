@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAppbg"
     android:orientation="vertical"
     tools:context="com.freeintelligence.robotclient.ui.activity.BriefActivity">
-    <include layout="@layout/toolbar"/>
-<com.example.xrecyclerview.XRecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/rl_brief"
-   android:layout_margin="@dimen/dp_1">
-</com.example.xrecyclerview.XRecyclerView>
+
+    <include layout="@layout/toolbar" />
+
+    <com.example.xrecyclerview.XRecyclerView
+        android:id="@+id/rl_brief"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp">
+    </com.example.xrecyclerview.XRecyclerView>
 </LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_87"
+    android:layout_margin="@dimen/dp_1"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+        <ImageView
+            android:id="@+id/iv_newcar"
+            android:layout_width="@dimen/dp_105"
+            android:layout_height="@dimen/dp_69"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:background="@drawable/imag_item_stype"
+            android:src="@drawable/car" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toRightOf="@+id/iv_newcar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_hotcarname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_7"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="全新奥迪A8L 驾驭明天的智慧"
+                android:textColor="@color/colorNewCartitle"
+                android:textSize="@dimen/sp_12" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_hotcaradapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

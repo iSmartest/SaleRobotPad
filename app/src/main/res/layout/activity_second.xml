@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAppbg"
+    android:orientation="vertical"
+    tools:context="com.freeintelligence.robotclient.ui.activity.SecondActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <include layout="@layout/tablegridlayoutsecond" />
+
+    <LinearLayout
+        android:id="@+id/ll_second_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+
+        <TextView
+            android:id="@+id/tv_jiaochevariety"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="轿车（共0款）"
+            android:textColor="@color/colorbgbule"
+            android:textSize="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/tv_suvvariety"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="SUV（共0款）"
+            android:textColor="@color/colortextgrey"
+            android:textSize="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/tv_mpvvariety"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="（共0款）"
+            android:textColor="@color/colortextgrey"
+            android:textSize="@dimen/dp_10" />
+
+        <TextView
+            android:id="@+id/tv_paochevariety"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:text="跑车（共0款）"
+            android:textColor="@color/colortextgrey"
+            android:textSize="@dimen/dp_10" />
+    </LinearLayout>
+
+    <com.example.xrecyclerview.XRecyclerView
+        android:id="@+id/rl_second"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.example.xrecyclerview.XRecyclerView>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/iv_picsd"
+        android:layout_width="@dimen/dp_112"
+        android:layout_height="@dimen/dp_68"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:background="@drawable/imag_item_stype" />
+</LinearLayout>

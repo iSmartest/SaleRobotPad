@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shape_sideline">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAppbg"
+        android:textSize="@dimen/dp_8"
+        android:padding="@dimen/dp_1"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:text="基本参数"
+        android:id="@+id/tv_table"/>
+        <com.freeintelligence.robotclient.view.MyListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_sideline"
+            android:id="@+id/lv_table1">
+        </com.freeintelligence.robotclient.view.MyListView>
+</LinearLayout>

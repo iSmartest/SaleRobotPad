@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
+    <ImageView
+        android:id="@+id/iv_question_answer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_160"
+        android:background="@drawable/psq"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_14"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_9"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/iv_question_answer"
+        android:text="（提示：本问卷为有奖问卷，填写完整问卷，可以到前台领取礼品一份。）"/>
+</RelativeLayout>

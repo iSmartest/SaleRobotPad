@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_32"
+    android:gravity="center_vertical"
+    android:background="@color/colorWhite">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_17"
+        android:textColor="@color/colorBlack"
+        android:text="2018-04-8   在本店洗车"
+        android:textSize="@dimen/dp_11"
+        android:layout_marginLeft="@dimen/dp_35"
+        android:id="@+id/tv_consume1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginLeft="@dimen/dp_504"
+        android:textColor="@color/colorBlack"
+        android:text="300元"
+        android:textSize="@dimen/dp_11"
+       android:id="@+id/tv_consume2"/>
+
+</RelativeLayout>

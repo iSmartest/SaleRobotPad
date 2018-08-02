@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:paddingLeft="@dimen/dp_18"
+    android:paddingTop="@dimen/dp_9"
+    android:paddingBottom="@dimen/dp_9">
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/colorBlack"/>
+    <com.freeintelligence.robotclient.view.MyListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+    </com.freeintelligence.robotclient.view.MyListView>
+</LinearLayout>

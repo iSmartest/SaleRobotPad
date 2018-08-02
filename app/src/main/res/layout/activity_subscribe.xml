@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/rectangle"
+    tools:context="com.freeintelligence.robotclient.ui.activity.SubscribeActivity">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+<TextView
+    android:layout_width="0.dp"
+    android:layout_height="0.dp"
+    android:layout_centerInParent="true"
+    android:id="@+id/tv_null"/>
+    <TextView
+        android:layout_width="@dimen/dp_93"
+        android:layout_height="@dimen/dp_93"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@drawable/shape_subbg"
+        android:layout_toLeftOf="@+id/tv_null"
+        android:layout_marginRight="@dimen/dp_6"
+        android:text="爱车试驾"
+        android:textSize="@dimen/dp_18"
+        android:id="@+id/tv_textdrive"/>
+    <TextView
+        android:layout_width="@dimen/dp_93"
+        android:layout_height="@dimen/dp_93"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@drawable/shape_subbg"
+        android:layout_toRightOf="@+id/tv_null"
+        android:layout_marginLeft="@dimen/dp_6"
+        android:text="维修保养"
+        android:textSize="@dimen/dp_18"
+        android:id="@+id/tv_maintain"/>
+</RelativeLayout>

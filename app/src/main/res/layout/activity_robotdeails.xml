@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colortitlebar"
+    tools:context="com.freeintelligence.robotclient.ui.activity.RobotdeailsActivity">
+   <include layout="@layout/toolbar"/>
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/robotbanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        app:title_height="@dimen/dp_48"/>
+    <ImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_260"
+        android:layout_marginLeft="@dimen/dp_504"
+        android:src="@drawable/play"
+        android:id="@+id/iv_rslid"/>
+</RelativeLayout>

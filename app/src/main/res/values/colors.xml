@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <!--经常使用的白色-->
+    <color name="colorWhite">#FFFFFF</color>
+    <!--经常使用的黑色-->
+    <color name="colorBlack">#101010</color>
+    <!--经常使用的灰色-->
+    <color name="colorGrey">#F2F2F2F2</color>
+    <color name="edit_hint_color">#b3b3b3</color>
+    <color name="divider_color">#e6e6e6</color>
+    <!--红色-->
+    <color name="colorred">#FFE51C23</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--首页板块背景颜色-->
+    <color name="colorFirstbg">#B3167CD5</color>
+    <!--App背景颜色-->
+    <color name="colorAppbg">#FFF8F8F8</color>
+    <color name="colorNewCartitle">#FF101010</color>
+    <!--登入页面的登入键背景-->
+    <color name="colorloadbg">#FF3498F0</color>
+    <!--老用户接待5个控件的背景颜色-->
+    <color name="colorservice1">#FFFF9800</color>
+    <color name="colorservice2">#FF8BC34A</color>
+    <color name="colorservice3">#FFE51C23</color>
+    <color name="colorservice4">#FF16B7E1</color>
+    <color name="colorservice5">#FF4445CC</color>
+    <!--输入的字体颜色-->
+    <color name="colorword">#FF030303</color>
+    <!--标题栏颜色-->
+    <color name="colortitlebar">#FF001F3A</color>
+    <!--详解界面文字背景颜色-->
+    <color name="colorexplainword">#9C101010</color>
+    <!--车身颜色选择-->
+    <color name="carcolor1">#101010</color>
+    <color name="carcolor2">#FFFFFF</color>
+    <color name="carcolor3">#BBBBBB</color>
+    <color name="carcolor4">#101010</color>
+    <color name="carcolor5">#E51C23</color>
+    <!--边框的颜色-->
+    <color name="colorrim">#EEEEEE</color>
+    <!--背景蓝色-->
+    <color name="colorbgbule">#FF167CD5</color>
+    <!--状态选中器选中的背景颜色-->
+    <color name="colorbggrey">#B2101010</color>
+    <!--背景蒙版-->
+    <color name="colormeng">#7A001E3A</color>
+    <!--卖点背景颜色-->
+    <color name="colorselling">#EEBBBBBB</color>
+    <!--二手车卖点红色-->
+    <color name="colorsecondsellingred">#FFE51C23</color>
+    <!--字体的灰色和蓝色-->
+    <color name="colortextgrey">#99101010</color>
+    <color name="colortextblue">#FF167CD5</color>
+</resources>

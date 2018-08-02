@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_32"
+    android:background="@color/colorWhite"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="@dimen/dp_1">
+<TextView
+    android:layout_width="@dimen/dp_58"
+    android:layout_height="@dimen/dp_16"
+    android:layout_marginLeft="@dimen/dp_39"
+    android:textSize="@dimen/dp_11"
+    android:text="2018-05-23 "
+    android:textColor="@color/colorBlack"
+    android:gravity="center"
+    android:id="@+id/tv_integral1"
+    />
+    <TextView
+        android:layout_width="@dimen/dp_95"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_130"
+        android:textSize="@dimen/dp_11"
+        android:text="洗车获得100个积分"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:id="@+id/tv_integral2"/>
+</RelativeLayout>

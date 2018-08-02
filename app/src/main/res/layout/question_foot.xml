@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_question_nine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q9：您是否尝试过线上预约试乘/试驾？"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/dp_14"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"/>
+    <RadioGroup
+        android:id="@+id/rg_answer_nine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/tv_question_nine"
+        android:paddingLeft="@dimen/dp_36"
+        android:paddingBottom="@dimen/dp_9">
+
+        <RadioButton
+            android:id="@+id/rb_answer_yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="尝试过"
+            android:textSize="@dimen/dp_12"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/selected_box_style"
+            android:drawablePadding="8dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:textColor="@color/colorBlack" />
+
+        <RadioButton
+            android:id="@+id/rb_answer_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="没尝试过"
+            android:textSize="@dimen/dp_12"
+            android:background="@null"
+            android:button="@null"
+            android:layout_marginTop="@dimen/dp_4"
+            android:drawableLeft="@drawable/selected_box_style"
+            android:drawablePadding="8dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:textColor="@color/colorBlack" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/ll_your_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_9"
+        android:layout_below="@+id/rg_answer_nine">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Q10:  您的姓名："
+            android:textSize="@dimen/dp_14"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/et_rename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/dp_14"
+            android:textColor="@color/colorBlack"
+            android:theme="@style/MyEditText" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_resex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_9"
+        android:layout_below="@+id/ll_your_name">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别："
+            android:textSize="@dimen/dp_14"
+            android:textColor="@color/colorBlack" />
+
+        <RadioButton
+            android:id="@+id/rb_sex_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:textSize="@dimen/dp_12"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/selected_box_style"
+            android:drawablePadding="6dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:textColor="@color/colorBlack" />
+
+        <RadioButton
+            android:id="@+id/rb_sex_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="女"
+            android:textSize="@dimen/dp_12"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/selected_box_style"
+            android:drawablePadding="6dp"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:textColor="@color/colorBlack" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_your_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_9"
+        android:layout_below="@+id/rg_resex">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年龄："
+            android:textSize="@dimen/dp_14"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/et_re_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/dp_14"
+            android:numeric="integer"
+            android:theme="@style/MyEditText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_your_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingTop="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_9"
+        android:layout_below="@+id/ll_your_age">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码："
+            android:textSize="@dimen/dp_14"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/et_rephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:textSize="@dimen/dp_14"
+            android:phoneNumber="true"
+            android:theme="@style/MyEditText" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_qusecommit"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_30"
+        android:layout_margin="@dimen/dp_30"
+        android:background="@color/colorbgbule"
+        android:gravity="center"
+        android:text="提交"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/ll_your_phone"/>
+
+</RelativeLayout>

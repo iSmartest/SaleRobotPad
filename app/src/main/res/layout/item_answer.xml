@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+    <CheckBox
+        android:id="@+id/ck_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_18"
+        android:layout_weight="1"
+        android:background="@null"
+        android:button="@null"
+        android:clickable="true"
+        android:drawableLeft="@drawable/selected_box_style"
+        android:drawablePadding="8dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="刷卡支付"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/dp_12" />
+
+</LinearLayout>

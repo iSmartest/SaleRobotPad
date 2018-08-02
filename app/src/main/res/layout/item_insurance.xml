@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_13"
+        android:layout_marginLeft="@dimen/dp_37"
+        android:textSize="@dimen/dp_11"
+        android:textColor="@color/colorBlack"
+        android:text="投保公司：  中国平安"
+        android:id="@+id/tv_insur1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_37"
+        android:textSize="@dimen/dp_11"
+        android:textColor="@color/colorBlack"
+        android:text="投保时间：  2018.03.12"
+        android:id="@+id/tv_insur2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginLeft="@dimen/dp_37"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlack"
+        android:text="投保种类：  强交险     第三者责任险     车损险"
+        android:id="@+id/tv_insur3"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_37"
+            android:textSize="@dimen/dp_11"
+            android:textColor="@color/colorBlack"
+            android:text="报险记录： "
+           />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:textSize="@dimen/dp_11"
+            android:textColor="@color/colorBlack"
+            android:id="@+id/tv_insur4"/>/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/dp_600"
+        android:layout_height="1dp"
+        android:background="@color/colorrim"
+        android:layout_marginLeft="@dimen/dp_37"
+        android:layout_marginTop="@dimen/dp_12"/>
+
+</LinearLayout>

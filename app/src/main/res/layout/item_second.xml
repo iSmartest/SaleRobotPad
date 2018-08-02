@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_87"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/dp_1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_8">
+        <ImageView
+            android:id="@+id/iv_tseond"
+            android:layout_width="@dimen/dp_105"
+            android:layout_height="@dimen/dp_69"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:background="@drawable/shape_sideline" />
+        <LinearLayout
+            android:id="@+id/ll_itemsecond"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_second1"
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_16"
+                android:text="奥迪A6L 2012款 35 FSI 舒适型"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dp_8" />
+
+            <TextView
+                android:id="@+id/tv_second2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="上牌时间    2015-06"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dp_6" />
+
+            <TextView
+                android:id="@+id/tv_second3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="公里表显里程  7.16万"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dp_6" />
+
+            <TextView
+                android:id="@+id/tv_second4"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="车主报价： ¥25.80 万 "
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dp_6" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/iv_secondright"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/label1" />
+
+            <TextView
+                android:id="@+id/tv_item_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="急降"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tv_item_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="4000￥"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center"
+                android:layout_below="@+id/tv_item_down"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_second5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/shape_sideline"
+            android:text="准新车"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_4"
+            android:textSize="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:textColor="@color/colorBlack" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

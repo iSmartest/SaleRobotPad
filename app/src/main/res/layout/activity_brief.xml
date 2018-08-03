@@ -12,7 +12,6 @@
     <com.example.xrecyclerview.XRecyclerView
         android:id="@+id/rl_brief"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="1dp">
+        android:layout_height="match_parent">
     </com.example.xrecyclerview.XRecyclerView>
 </LinearLayout>

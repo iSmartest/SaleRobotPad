@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.moudel.QuestionBean;
 import com.freeintelligence.robotclient.view.MyListView;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         MyListView myListView;
         QuestionViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             mQuestion = itemView.findViewById(R.id.tv_question);
             myListView = itemView.findViewById(R.id.listView);
 

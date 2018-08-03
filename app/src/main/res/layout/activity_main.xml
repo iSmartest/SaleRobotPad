@@ -90,7 +90,6 @@
             android:layout_width="241px"
             android:layout_height="530px"
             android:background="@color/colorFirstbg"
-            android:paddingVertical="6dp"
             android:layout_marginLeft="23px"
             android:src="@drawable/group" />
     </LinearLayout>

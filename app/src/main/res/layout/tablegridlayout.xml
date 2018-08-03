@@ -9,12 +9,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_60"
+        android:layout_height="150px"
         android:background="@color/colorWhite"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="@dimen/dp_100"
+            android:layout_width="239px"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:text="级别"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_12" />
+                android:textSize="28px" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -34,13 +34,14 @@
                 android:gravity="center"
                 android:text="价格"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_12" />
+                android:textSize="28px" />
 
         </LinearLayout>
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
+            android:layout_width="1px"
+            android:layout_height="114px"
+            android:layout_gravity="center"
             android:background="@color/colorrim" />
 
         <LinearLayout
@@ -60,8 +61,8 @@
                     android:id="@+id/rb_tbl1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
@@ -69,49 +70,49 @@
                     android:gravity="center"
                     android:text="全部"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tbl2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="一汽-大众奥迪"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tbl3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="奥迪(进口)"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tbl4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="Audi Sport"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
             </RadioGroup>
 
@@ -127,8 +128,8 @@
                     android:id="@+id/rb_tblt1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
@@ -136,51 +137,50 @@
                     android:gravity="center"
                     android:text="全部"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tblt2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="30万以下"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tblt3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="30-50万"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
 
                 <RadioButton
                     android:id="@+id/rb_tblt4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_8"
-                    android:layout_marginRight="@dimen/dp_8"
+                    android:layout_marginLeft="28px"
+                    android:layout_marginRight="28px"
                     android:layout_weight="1"
                     android:background="@drawable/selector_radiocolorbg"
                     android:button="@null"
                     android:gravity="center"
                     android:text="50万以上"
                     android:textColor="@color/select_text_color"
-                    android:textSize="@dimen/dp_12" />
+                    android:textSize="28px" />
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

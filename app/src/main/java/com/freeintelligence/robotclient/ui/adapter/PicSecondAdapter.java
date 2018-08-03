@@ -15,6 +15,7 @@ import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.activity.PicSecondActivity;
 import com.freeintelligence.robotclient.ui.activity.SecondInfoActivity;
 import com.freeintelligence.robotclient.utils.GlideUtils;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -69,6 +70,7 @@ public class PicSecondAdapter extends RecyclerView.Adapter<PicSecondAdapter.PicS
 
         public PicSecondViewHodler(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             ivPicsd = itemView.findViewById(R.id.iv_picsd);
         }
     }

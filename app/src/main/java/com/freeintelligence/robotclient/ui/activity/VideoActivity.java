@@ -18,6 +18,8 @@ import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerManager;
 import cn.jzvd.JZVideoPlayerStandard;
 
+import static com.freeintelligence.robotclient.config.Url.IMAGE_HTTP;
+
 public class VideoActivity extends Activity {
 
 
@@ -29,7 +31,7 @@ public class VideoActivity extends Activity {
         setContentView(R.layout.activity_video);
         ButterKnife.bind(this);
        //获取视频地址
-        String uri = getIntent().getStringExtra(MyString.VIDEO);
+        String uri = IMAGE_HTTP+getIntent().getStringExtra(MyString.VIDEO);
         JZVideoPlayer.FULLSCREEN_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;  //横向
         JZVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;  //横向
         jzVideoplayer.backButton.setVisibility(View.VISIBLE);
@@ -43,7 +45,7 @@ public class VideoActivity extends Activity {
         });
         jzVideoplayer.fullscreenButton.setVisibility(View.GONE);
         jzVideoplayer.titleTextView.setVisibility(View.GONE);
-        jzVideoplayer.setUp("http://jzvd.nathen.cn/342a5f7ef6124a4a8faf00e738b8bee4/cf6d9db0bd4d41f59d09ea0a81e918fd-5287d2089db37e62345123a1be272f8b.mp4"
+        jzVideoplayer.setUp(uri
                 , JZVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN);
         //设置播放器封面
         jzVideoplayer.startVideo();

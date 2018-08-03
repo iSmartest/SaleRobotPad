@@ -8,16 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.moudel.ShowBean;
 import com.freeintelligence.robotclient.utils.GlideUtils;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by za on 2018/6/19.
@@ -60,6 +56,7 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ShowViewHolder
         TextView tvShowname;
         ShowViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             ivShow = itemView.findViewById(R.id.iv_show);
             tvShowmo = itemView.findViewById(R.id.tv_showmo);
             tvShowname = itemView.findViewById(R.id.tv_showname);

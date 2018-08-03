@@ -3,13 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.freeintelligence.robotclient">
 
-    <supports-screens
-        android:largeScreens="true"
-        android:normalScreens="false"
-        android:requiresSmallestWidthDp="600"
-        android:smallScreens="false"
-        android:xlargeScreens="true" />
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -186,6 +179,9 @@
         <activity
             android:name=".ui.activity.RobotVideoActivity"
             android:screenOrientation="landscape" />
+
+        <meta-data android:name="design_width" android:value="1920"></meta-data>
+        <meta-data android:name="design_height" android:value="1200"></meta-data>
 
     </application>
 

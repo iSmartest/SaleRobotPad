@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorWhite"
-    android:paddingLeft="@dimen/dp_18"
-    android:paddingTop="@dimen/dp_9"
-    android:paddingBottom="@dimen/dp_9">
+    android:paddingLeft="28px"
+    android:paddingTop="20px"
+    android:paddingBottom="20px">
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/dp_14"
+        android:textSize="36px"
         android:textColor="@color/colorBlack"/>
     <com.freeintelligence.robotclient.view.MyListView
         android:id="@+id/listView"

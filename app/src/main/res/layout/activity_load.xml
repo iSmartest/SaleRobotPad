@@ -1,67 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colortitlebar"
+    android:orientation="vertical"
     tools:context="com.freeintelligence.robotclient.ui.activity.LoadActivity">
+
     <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
-    <EditText
-        android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_95"
-        android:paddingLeft="@dimen/dp_9"
-        android:id="@+id/et_phone"
-        android:hint="请输入你的手机号"
-        android:textSize="@dimen/dp_11"
-        android:gravity="center_vertical"
-        android:background="#FFFFFF"
-        android:textColor="#030303"
-        android:textColorHint="@color/colorrim"
-        android:phoneNumber="true"/>
-    <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/dp_18"
-        android:layout_below="@+id/et_phone"
-        android:id="@+id/ll_load">
-        <EditText
-            android:layout_width="@dimen/dp_150"
-            android:layout_height="match_parent" 
-            android:id="@+id/et_vcode"
-            android:paddingLeft="@dimen/dp_10"
-            android:hint="请输入验证码"
-            android:background="#FFFFFF"
-            android:textColor="#030303"
-            android:textColorHint="@color/colorrim"
-            android:phoneNumber="true"/>
-        <TextView
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="发送验证码"
-            android:textSize="@dimen/dp_11"
-            android:layout_marginLeft="@dimen/dp_18"
-            android:background="@color/colorbgbule"
-            android:textColor="#030303"
-            android:id="@+id/tv_vcode"
-            />
-    </LinearLayout>
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_below="@+id/ll_load"
-        android:layout_marginTop="@dimen/dp_60"
-        android:background="@color/colorloadbg"
-        android:text="登录"
-        android:gravity="center"
-        android:textSize="@dimen/dp_11"
-        android:id="@+id/tv_load"/>
-</RelativeLayout>
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="953px"
+                    android:layout_height="100px"
+                    android:layout_marginTop="320px"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:hint="请输入你的手机号"
+                    android:inputType="phone"
+                    android:textColor="#030303"
+                    android:textColorHint="@color/edit_hint_color"
+                    android:textSize="36px"
+                    android:paddingLeft="4px"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_load"
+                    android:layout_width="953px"
+                    android:layout_height="100px"
+                    android:layout_below="@+id/et_phone"
+                    android:layout_marginTop="80px"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_vcode"
+                        android:layout_width="478px"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:hint="请输入验证码"
+                        android:inputType="number"
+                        android:textColor="#030303"
+                        android:textColorHint="@color/edit_hint_color"
+                        android:textSize="36px"
+                        android:paddingLeft="4px"/>
+
+                    <TextView
+                        android:id="@+id/tv_vcode"
+                        android:layout_width="433px"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="42px"
+                        android:background="@color/colorbgbule"
+                        android:gravity="center"
+                        android:text="发送验证码"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="36px" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_load"
+                    android:layout_width="953px"
+                    android:layout_height="100px"
+                    android:layout_below="@+id/ll_load"
+                    android:layout_marginTop="258px"
+                    android:background="@color/colorloadbg"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="36px" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

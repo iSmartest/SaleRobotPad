@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.moudel.HotcarBean;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class BrightPointAdapter extends RecyclerView.Adapter<BrightPointAdapter.
         TextView tvHotCarBrigh;
         public BrightPointViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             tvHotCarBrigh = itemView.findViewById(R.id.tv_hotcarbrigh);
         }
     }

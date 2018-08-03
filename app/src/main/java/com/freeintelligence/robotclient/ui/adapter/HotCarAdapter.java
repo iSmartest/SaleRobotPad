@@ -21,6 +21,7 @@ import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.HotcarBean;
 import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.freeintelligence.robotclient.view.MyRecyclerView;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -93,6 +94,7 @@ public class HotCarAdapter extends RecyclerView.Adapter<HotCarAdapter.HotCarView
         RecyclerView recyclerView;
         HotCarViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             ivNewCar = itemView.findViewById(R.id.iv_newcar);
             tvHotCarName = itemView.findViewById(R.id.tv_hotcarname);
             recyclerView = itemView.findViewById(R.id.rv_hotcaradapter);

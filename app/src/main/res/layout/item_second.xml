@@ -1,83 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_87"
+    android:layout_width="948px"
+    android:layout_height="295px"
     android:background="@color/colorWhite"
     android:orientation="horizontal"
-    android:layout_margin="@dimen/dp_1">
+    android:layout_marginBottom="8px">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="@dimen/dp_8">
+        android:layout_marginLeft="21px"
+        android:layout_weight="1"
+        android:gravity="center|left">
         <ImageView
             android:id="@+id/iv_tseond"
-            android:layout_width="@dimen/dp_105"
-            android:layout_height="@dimen/dp_69"
+            android:layout_width="350px"
+            android:layout_height="230px"
             android:layout_centerVertical="true"
             android:scaleType="fitXY"
-            android:background="@drawable/shape_sideline" />
+            android:background="@drawable/image_item_style" />
         <LinearLayout
             android:id="@+id/ll_itemsecond"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp_2"
+            android:layout_height="230px"
+            android:layout_marginLeft="45px"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_second1"
-                android:layout_width="@dimen/dp_120"
-                android:layout_height="@dimen/dp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="奥迪A6L 2012款 35 FSI 舒适型"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_8" />
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:layout_weight="1"
+                android:textSize="28px" />
 
             <TextView
                 android:id="@+id/tv_second2"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_12"
-                android:layout_marginTop="@dimen/dp_5"
+                android:layout_height="wrap_content"
                 android:text="上牌时间    2015-06"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_6" />
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="20px" />
 
             <TextView
                 android:id="@+id/tv_second3"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_12"
-                android:layout_marginTop="@dimen/dp_5"
+                android:layout_height="wrap_content"
                 android:text="公里表显里程  7.16万"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_6" />
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="20px"  />
 
             <TextView
                 android:id="@+id/tv_second4"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_12"
-                android:layout_marginTop="@dimen/dp_5"
+                android:layout_height="wrap_content"
                 android:text="车主报价： ¥25.80 万 "
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dp_6" />
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="20px" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="135px"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:layout_marginRight="8px"
+        android:layout_marginLeft="20px"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_8">
+            android:layout_width="match_parent"
+            android:layout_height="170px"
+            android:layout_marginTop="30px">
 
             <ImageView
                 android:id="@+id/iv_secondright"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:src="@drawable/label1" />
 
             <TextView
@@ -85,36 +103,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp_8"
                 android:text="急降"
+                android:paddingTop="20px"
                 android:gravity="center"
                 android:textColor="@color/colorWhite"
-                android:textSize="14dp" />
+                android:textSize="28px" />
 
             <TextView
                 android:id="@+id/tv_item_money"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="4000￥"
-                android:layout_marginTop="@dimen/dp_8"
+                android:text="￥4000"
+                android:paddingTop="20px"
                 android:gravity="center"
                 android:layout_below="@+id/tv_item_down"
                 android:textColor="@color/colorWhite"
-                android:textSize="14dp" />
+                android:textSize="30px" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_second5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="112px"
+            android:layout_height="47px"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/shape_sideline"
             android:text="准新车"
             android:gravity="center"
-            android:layout_marginTop="@dimen/dp_4"
-            android:textSize="@dimen/dp_10"
-            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginTop="15px"
+            android:textSize="20px"
             android:textColor="@color/colorBlack" />
     </LinearLayout>
 

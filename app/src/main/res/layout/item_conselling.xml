@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="#FFF8F8F8"
-    android:textSize="@dimen/dp_8"
-    android:paddingVertical="@dimen/dp_4"
-    android:id="@+id/tv_conselling"/>
     <View
-        android:layout_width="@dimen/dp_228"
-        android:layout_height="1dp"
-        android:background="@color/colorWhite"/>
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorWhite" />
+    <TextView
+        android:id="@+id/tv_conselling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:textColor="#FFF8F8F8"
+        android:textSize="28px" />
+
+
 </LinearLayout>

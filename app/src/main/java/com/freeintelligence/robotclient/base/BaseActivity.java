@@ -16,6 +16,7 @@ import com.freeintelligence.robotclient.R;;
 import com.freeintelligence.robotclient.ui.activity.FirstVideoActivity;
 import com.freeintelligence.robotclient.app.App;
 import com.freeintelligence.robotclient.utils.StatusBarUtil;
+import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
  * 所有Activity都继承此Activity
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AutoLayoutActivity {
 
     private static final String TAG = "BaseActivity";
     private BaseFragment lastFragment;

@@ -62,7 +62,7 @@ public class SecondInfoActivity extends BaseActivity {
     TextView tvSd31;
     @BindView(R.id.tv_sd32)
     TextView tvSd32;
-    private SeconddeailsBean.DataBean dataBean;
+    private List<List<String>> listList = new ArrayList<>();
     private int id = 0;
     private TableAdapter tableAdapter;
     private List<String> list;
@@ -82,13 +82,10 @@ public class SecondInfoActivity extends BaseActivity {
 
     @Override
     protected void loadData() {
-        //int intExtra = getIntent().getIntExtra(MyString.INTENTSECONDCAR, 0);
-        // id = intExtra;
         SecondBean.DataBean.CarBean carBean = (SecondBean.DataBean.CarBean) getIntent().getSerializableExtra(MyString.INTENTINSPECTID);
         id = carBean.getId();
         List<String> brightPoint = carBean.getBrightPoint();
         list = new ArrayList<>();
-        dataBean = new SeconddeailsBean.DataBean();
         rvPicseconddea.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         picSecondAdapter = new PicSecondAdapter(context,list);
         rvPicseconddea.setAdapter(picSecondAdapter);
@@ -142,8 +139,25 @@ public class SecondInfoActivity extends BaseActivity {
                 list.clear();
                 list.addAll(pics);
                 picSecondAdapter.notifyDataSetChanged();
-                dataBean = data;
-                tableAdapter = new TableAdapter(context, dataBean);
+                if (data.getBasic() != null && !data.getBasic().isEmpty() && data.getBasic().size() > 0){
+                    listList.add(data.getBasic());
+                }
+                if (data.getMontor() != null && !data.getMontor().isEmpty() && data.getMontor().size() > 0){
+                    listList.add(data.getMontor());
+                }
+                if (data.getUnderPan() != null && !data.getUnderPan().isEmpty() && data.getUnderPan().size() > 0){
+                    listList.add(data.getUnderPan());
+                }
+                if (data.getSecure() != null && !data.getSecure().isEmpty() && data.getSecure().size() > 0){
+                    listList.add(data.getSecure());
+                }
+                if (data.getOuter() != null && !data.getOuter().isEmpty() && data.getOuter().size() > 0){
+                    listList.add(data.getOuter());
+                }
+                if (data.getInner() != null && !data.getInner().isEmpty() && data.getInner().size() > 0){
+                    listList.add(data.getInner());
+                }
+                tableAdapter = new TableAdapter(context, listList);
                 rvSecond.setAdapter(tableAdapter);
             }
         });

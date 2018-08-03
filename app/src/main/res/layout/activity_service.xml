@@ -13,61 +13,51 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:orientation="horizontal"
-        android:padding="@dimen/dp_80"
         android:gravity="center">
 
 
         <TextView
             android:id="@+id/tv_service1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_90"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_width="300px"
+            android:layout_height="300px"
             android:background="@color/colorservice1"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/service_1"
-            android:textColor="#FFFFFFFF"
-            android:textSize="@dimen/sp_15" />
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
         <TextView
             android:id="@+id/tv_service2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_90"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:layout_marginLeft="22px"
             android:background="@color/colorservice2"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/service_2"
-            android:textColor="#FFFFFFFF"
-            android:textSize="@dimen/sp_15" />
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
 
 
         <TextView
             android:id="@+id/tv_service3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_90"
+            android:layout_width="300px"
+            android:layout_height="300px"
             android:background="@color/colorservice3"
             android:gravity="center"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:layout_weight="1"
+            android:layout_marginLeft="22px"
             android:text="@string/service_3"
-            android:textColor="#FFFFFFFF"
-            android:textSize="@dimen/sp_15" />
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
 
         <TextView
             android:id="@+id/tv_service5"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_90"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:layout_marginRight="@dimen/dp_5"
+            android:layout_width="300px"
+            android:layout_height="300px"
+            android:layout_marginLeft="22px"
             android:background="@color/colorservice5"
             android:gravity="center"
-            android:layout_weight="1"
             android:text="@string/service_5"
-            android:textColor="#FFFFFFFF"
-            android:textSize="@dimen/sp_15" />
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 
-import static com.freeintelligence.robotclient.config.Url.HTTP;
+import static com.freeintelligence.robotclient.config.Url.IMAGE_HTTP;
 
 
 /**
@@ -16,7 +16,7 @@ import static com.freeintelligence.robotclient.config.Url.HTTP;
  */
 public class GlideUtils {
     public static void imageLoader(Context context, String image, ImageView imageView){
-        String pic = HTTP + image;
-        Glide.with(context).load(pic).error(R.drawable.car).into(imageView);
+        String pic = IMAGE_HTTP + image;
+        Glide.with(context).load(pic).error(R.drawable.site_pic).into(imageView);
     }
 }

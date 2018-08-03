@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.moudel.QuestionBean;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class AnswerAdapter extends BaseAdapter {
             viewHolder = new AnswerViewHolder();
             viewHolder.checkBox = convertView.findViewById(R.id.ck_answer);
             convertView.setTag(viewHolder);
-
+            AutoUtils.autoSize(convertView);
         }else {
             viewHolder = (AnswerViewHolder) convertView.getTag();
         }
@@ -76,7 +77,4 @@ public class AnswerAdapter extends BaseAdapter {
     class AnswerViewHolder {
         CheckBox checkBox;
     }
-
-
-
 }

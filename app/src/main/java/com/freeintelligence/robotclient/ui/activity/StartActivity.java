@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -75,9 +76,7 @@ public class StartActivity extends AppCompatActivity {
         getWindow().getDecorView().setBackgroundResource(R.mipmap.rectangle);
         super.onCreate(savedInstanceState);
         StatusBarUtil.fullScreen(StartActivity.this);
-        SPUtil.putString(StartActivity.this,"storeId","1");
         mStartTime = System.currentTimeMillis();//记录开始时间1
-        mHandler.sendEmptyMessage(1);
         checkPermission();
     }
 
@@ -122,6 +121,17 @@ public class StartActivity extends AppCompatActivity {
                         REQUEST_CODE_ASK_PERMISSIONS);
                 return;
             }
+            mHandler.sendEmptyMessage(1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case REQUEST_CODE_ASK_PERMISSIONS:
+                mHandler.sendEmptyMessage(1);
+                break;
         }
     }
 }

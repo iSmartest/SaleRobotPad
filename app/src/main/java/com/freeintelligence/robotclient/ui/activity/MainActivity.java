@@ -10,13 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.freeintelligence.robotclient.R;
-import com.freeintelligence.robotclient.ui.activity.HotcarActivity;
-import com.freeintelligence.robotclient.ui.activity.LoadActivity;
-import com.freeintelligence.robotclient.ui.activity.ORCActivity888;
-import com.freeintelligence.robotclient.ui.activity.RobotconsltActivity;
-import com.freeintelligence.robotclient.ui.activity.SecondActivity;
-import com.freeintelligence.robotclient.ui.activity.ServiceActivity;
-import com.freeintelligence.robotclient.ui.activity.SubscribeActivity;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
 
@@ -25,7 +18,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity{
-
     @BindView(R.id.iv_hot)
     ImageView ivHot;
     @BindView(R.id.iv_second)
@@ -40,7 +32,6 @@ public class MainActivity extends BaseActivity{
     ImageView ivSubscribe;
     @BindView(R.id.iv_set)
     ImageView ivSet;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +59,6 @@ public class MainActivity extends BaseActivity{
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_hot://跳转到热车销售页面
-
                 Intent hotintent = new Intent(this, HotcarActivity.class);
                 startActivity(hotintent);
                 break;
@@ -90,7 +80,6 @@ public class MainActivity extends BaseActivity{
                 break;
             case R.id.iv_inspect:
                 //跳转到车间服务页面
-                //Intent intent = new Intent(this, InspectActivity.class);
                 Intent inspectintent = new Intent(this, LoadActivity.class);
                 inspectintent.putExtra(MyString.LOADTAG,2);
                 startActivity(inspectintent);
@@ -103,15 +92,8 @@ public class MainActivity extends BaseActivity{
             case R.id.iv_set:
                 //跳转到咨询销售页面
                Intent setintent = new Intent(this, RobotconsltActivity.class);
-               // Intent setintent = new Intent(this, ConsultActivity.class);
                 startActivity(setintent);
                 break;
-         /*   case R.id.tv_load:
-                //跳转到登录页面
-           Intent loadintent = new Intent(this, LoadActivity.class);
-             // Intent loadintent = new Intent(this, LonginActivity.class);
-                startActivity(loadintent);
-                break;*/
             case R.id.tv_linshi:
                 Intent zixunintent = new Intent(this, ORCActivity888.class);
                 startActivity(zixunintent);

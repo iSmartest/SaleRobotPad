@@ -68,5 +68,6 @@ dependencies {
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
     implementation project(':recyclerviewanimators')
     implementation project(':xrecyclerview')
-    implementation 'com.bulong.rudeness:rudeness:latest.release@aar'
+    implementation 'com.zhy:autolayout:1.4.5'
+
 }

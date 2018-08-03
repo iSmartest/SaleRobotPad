@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -52,6 +53,7 @@ public class RedsellingAdapter extends RecyclerView.Adapter<RedsellingAdapter.Re
         TextView tvSelling;
         public RedSellingViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             tvSelling = itemView.findViewById(R.id.tv_adapterselling);
         }
     }

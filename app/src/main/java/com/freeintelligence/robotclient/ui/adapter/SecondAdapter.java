@@ -18,6 +18,7 @@ import com.freeintelligence.robotclient.ui.moudel.SecondBean;
 import com.freeintelligence.robotclient.utils.DateUtils;
 import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.freeintelligence.robotclient.utils.PriceUtils;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondView
     @Override
     public void onBindViewHolder(@NonNull SecondViewHolder viewHolder, int position) {
         final SecondBean.DataBean.CarBean carListBean = data.get(position);
-        GlideUtils.imageLoader(context,carListBean.getImage(),viewHolder.ivTseond);
+        GlideUtils.imageLoader(context,carListBean.getImages(),viewHolder.ivTseond);
         viewHolder.tvSecond1.setText(carListBean.getName());
         long time = carListBean.getTime();
         String dateToString = DateUtils.getDateToString(time, "yyy-MM-dd");
@@ -68,7 +69,7 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondView
                viewHolder.tvItemDown.setText("急降");
                viewHolder.tvItemMoney.setVisibility(View.VISIBLE);
                String getprice = PriceUtils.getprice(carListBean.getMoney());
-               viewHolder.tvItemMoney.setText(getprice.concat("￥"));
+               viewHolder.tvItemMoney.setText(getprice);
                break;
            case 1:
                viewHolder.ivSecondright.setImageResource(R.drawable.label1);
@@ -107,6 +108,7 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondView
         TextView tvSecond5;
         SecondViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             ivTseond = itemView.findViewById(R.id.iv_tseond);
             tvSecond1 = itemView.findViewById(R.id.tv_second1);
             tvSecond2 = itemView.findViewById(R.id.tv_second2);

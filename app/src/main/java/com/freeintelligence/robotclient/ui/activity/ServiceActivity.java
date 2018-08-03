@@ -51,16 +51,16 @@ public class ServiceActivity extends BaseActivity {
             case R.id.tv_service3://跳转呼叫服务页面
                 ToastUtils.makeText(context,"暂未开通");
                 break;
+            case R.id.tv_service1:
+                //跳转接待表页面
+                // Intent reptableintent = new Intent(this, ReceptiontableActivity.class);
+                Intent reptableintent = new Intent(this, QuestionActivity.class);
+                startActivity(reptableintent);
+                break;
             case R.id.tv_service2:
                 //跳转产品简介页面
                 Intent briefintent = new Intent(this, BriefActivity.class);
                 startActivity(briefintent);
-                break;
-            case R.id.tv_service1:
-                //跳转接待表页面
-               // Intent reptableintent = new Intent(this, ReceptiontableActivity.class);
-                Intent reptableintent = new Intent(this, QuestionActivity.class);
-                startActivity(reptableintent);
                 break;
            /* case R.id.tv_service4:
                 //跳转新车资讯页面

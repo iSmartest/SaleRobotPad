@@ -71,7 +71,7 @@ public class SlideshowActivity extends Activity {
                        videoAddress = answersBean.getVideoAddress();
                    }
                     Intent intent = new Intent(SlideshowActivity.this, VideoActivity.class);
-                    intent.putExtra(MyString.VIDEO, HTTP+videoAddress);
+                    intent.putExtra(MyString.VIDEO, videoAddress);
                     startActivity(intent);
                 }
             });

@@ -13,11 +13,10 @@ import com.freeintelligence.robotclient.ui.activity.VideoActivity;
 import com.freeintelligence.robotclient.app.App;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.ConsultBean;
-import java.util.List;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.zhy.autolayout.utils.AutoUtils;
 
-import static com.freeintelligence.robotclient.config.Url.HTTP;
+import java.util.List;
+
 
 /**
  * Created by za on 2018/7/25.
@@ -61,7 +60,7 @@ public class ConSellingAdapter extends RecyclerView.Adapter<ConSellingAdapter.Co
 
                     case 3:
                         Intent intent2 = new Intent(App.activity, VideoActivity.class);
-                        intent2.putExtra(MyString.VIDEO,HTTP+brightPointBean.getSellPointvid());
+                        intent2.putExtra(MyString.VIDEO,brightPointBean.getSellPointvid());
                         App.activity.startActivity(intent2);
                         break;
 
@@ -82,6 +81,7 @@ public class ConSellingAdapter extends RecyclerView.Adapter<ConSellingAdapter.Co
         TextView tvConselling;
         public ConSellingViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             tvConselling = itemView.findViewById(R.id.tv_conselling);
         }
     }

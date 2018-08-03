@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/shape_sideline"
-    android:layout_marginRight="@dimen/dp_11"
-    android:layout_marginBottom="@dimen/dp_16">
-<ImageView
-    android:layout_width="@dimen/dp_135"
-    android:layout_height="@dimen/dp_74"
-    android:src="@drawable/car"
-    android:id="@+id/iv_brief"/>
-    <TextView
-        android:layout_width="@dimen/dp_135"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="全新奥迪A8L 驾驭明天的智慧"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dp_6"
-        android:paddingVertical="@dimen/dp_3"
-        android:background="#9B101010"
-        android:id="@+id/tv_brief"/>
+    android:gravity="center"
+    android:background="@color/colorGrey"
+    android:layout_marginBottom="50px">
+    <LinearLayout
+        android:layout_width="450px"
+        android:layout_height="330px"
+        android:background="@drawable/image_item_style"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="450px"
+            android:layout_height="250px"
+            android:src="@drawable/site_pic"
+            android:id="@+id/iv_brief"/>
+        <TextView
+            android:layout_width="450px"
+            android:layout_height="80px"
+            android:gravity="center"
+            android:text="全新奥迪A8L 驾驭明天的智慧"
+            android:textColor="@color/colorWhite"
+            android:textSize="20px"
+            android:background="#9B101010"
+            android:id="@+id/tv_brief"/>
+    </LinearLayout>
 </LinearLayout>

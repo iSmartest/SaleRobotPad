@@ -12,31 +12,29 @@
     <RelativeLayout
         android:id="@+id/rl_hotcardeails"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="567px">
 
         <ImageView
             android:id="@+id/iv_consult"
-            android:layout_width="@dimen/dp_252"
-            android:layout_height="@dimen/dp_168"
+            android:layout_width="900px"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_33"
-            android:layout_marginTop="@dimen/dp_9"
+            android:layout_marginLeft="50px"
+            android:scaleType="fitXY"
             android:background="@color/colorWhite" />
 
         <ImageView
             android:id="@+id/iv_consultqus"
-            android:layout_width="@dimen/dp_105"
-            android:layout_height="@dimen/dp_49"
-            android:layout_marginLeft="@dimen/dp_3"
-            android:layout_marginTop="@dimen/dp_m_6"
+            android:layout_width="300px"
+            android:layout_height="150px"
             android:src="@drawable/psq2" />
 
         <LinearLayout
             android:id="@+id/ll_consult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginTop="@dimen/dp_3"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:layout_marginLeft="50px"
             android:layout_toRightOf="@+id/iv_consult"
             android:orientation="vertical">
 
@@ -48,140 +46,123 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dp_3"
-                    android:text="新车预售价:"
+                    android:text="新车预售价："
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:id="@+id/tv_conprice1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_3"
-                    android:padding="@dimen/dp_3"
                     android:text="10.2-20.5万"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_12"
-                    android:padding="@dimen/dp_3"
-                    android:text="车商城报价:"
+                    android:layout_marginLeft="100px"
+                    android:text="车商城报价："
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_9" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:id="@+id/tv_conprice2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_3"
-                    android:padding="@dimen/dp_3"
                     android:text="10.2-20.5万"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dp_3"
-                    android:text="发动机:"
+                    android:text="发动机："
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:id="@+id/tv_dondisplacement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_3"
-                    android:padding="@dimen/dp_3"
                     android:text="2.0T3.0T5.0T"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dp_3"
-                    android:text="变速箱:"
+                    android:text="变速箱："
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:id="@+id/tv_congearbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_3"
-                    android:padding="@dimen/dp_3"
                     android:text="手自一体"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dp_3"
-                    android:text="车身结构:"
+                    android:text="车身结构："
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
 
                 <TextView
                     android:id="@+id/tv_concarsturcture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_3"
-                    android:padding="@dimen/dp_3"
                     android:text="3箱"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_8" />
+                    android:textSize="28px" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="@dimen/dp_254"
-                android:layout_height="@dimen/dp_90"
-                android:layout_marginTop="@dimen/dp_14"
+                android:layout_width="830px"
+                android:layout_height="330px"
+                android:layout_marginTop="20px"
                 android:background="@drawable/shape_selling"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_21"
-                    android:layout_marginLeft="@dimen/dp_14"
+                    android:layout_height="wrap_content"
+                    android:padding="20px"
                     android:gravity="center_vertical"
                     android:text="卖点"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dp_11" />
+                    android:textSize="35px" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_0_3"
-                    android:background="@color/colorWhite" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_consultselling"
-                    android:layout_width="@dimen/dp_228"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_14">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px">
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>
@@ -191,5 +172,6 @@
     <com.freeintelligence.robotclient.view.FlowGroupView
         android:id="@+id/flv_consult"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.freeintelligence.robotclient.view.FlowGroupView>
+        android:layout_height="wrap_content">
+    </com.freeintelligence.robotclient.view.FlowGroupView>
 </LinearLayout>

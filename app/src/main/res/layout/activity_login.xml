@@ -1,50 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colortitlebar"
+    android:orientation="vertical"
     tools:context="com.freeintelligence.robotclient.ui.activity.LoginActivity">
 
     <include
-        layout="@layout/toolbar" android:visibility="gone" />
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:orientation="vertical">
-        <EditText
-            android:id="@+id/et_login_account"
-            android:layout_width="@dimen/dp_286"
-            android:layout_height="@dimen/dp_29"
-            android:layout_marginTop="@dimen/dp_96"
-            android:background="@color/colorWhite"
-            android:hint="请输入账号"
-            android:padding="@dimen/dp_6"
-            android:textColorHint="@color/colorrim"
-            android:textSize="@dimen/dp_11" />
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <EditText
-            android:id="@+id/et_login_possword"
-            android:layout_width="@dimen/dp_286"
-            android:layout_height="@dimen/dp_29"
-            android:layout_marginTop="@dimen/dp_31"
-            android:background="@color/colorWhite"
-            android:hint="请输入密码"
-            android:padding="@dimen/dp_6"
-            android:textColorHint="@color/colorrim" />
 
-        <TextView
-            android:id="@+id/tv_login_load"
-            android:layout_width="@dimen/dp_286"
-            android:layout_height="@dimen/dp_29"
-            android:layout_marginTop="129dp"
-            android:background="@color/colorbgbule"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:text="登录"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/dp_11" />
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_marginTop="320px"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_login_account"
+                android:layout_width="953px"
+                android:layout_height="100px"
+                android:background="@color/colorWhite"
+                android:hint="请输入账号"
+                android:paddingLeft="4px"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/edit_hint_color"
+                android:textSize="36px" />
+
+            <EditText
+                android:id="@+id/et_login_possword"
+                android:layout_width="953px"
+                android:layout_height="100px"
+                android:layout_marginTop="80px"
+                android:background="@color/colorWhite"
+                android:hint="请输入密码"
+                android:textSize="36px"
+                android:paddingLeft="4px"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/edit_hint_color" />
+
+            <TextView
+                android:id="@+id/tv_login_load"
+                android:layout_width="953px"
+                android:layout_height="100px"
+                android:layout_marginTop="258px"
+                android:background="@color/colorbgbule"
+                android:gravity="center"
+                android:text="登录"
+                android:textColor="@color/colorWhite"
+                android:textSize="36px" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

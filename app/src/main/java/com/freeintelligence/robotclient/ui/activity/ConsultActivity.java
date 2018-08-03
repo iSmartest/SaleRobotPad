@@ -23,10 +23,12 @@ import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.CarpyteBean;
 import com.freeintelligence.robotclient.ui.moudel.ConsultBean;
+import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.freeintelligence.robotclient.utils.PriceUtils;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.FlowGroupView;
 import com.google.gson.Gson;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,6 +105,7 @@ public class ConsultActivity extends BaseActivity {
                 }
                 ConsultBean.DataBean data = consultBean.getData();
                 String getprice = PriceUtils.getprice(data.getGuiPrice());
+                GlideUtils.imageLoader(context,consultBean.getData().getImage(),ivConsult);
                 tvConprice1.setText(getprice);
                 tvConcarsturcture.setText(data.getStructure());
                 tvCongearbox.setText(data.getGearbox());
@@ -219,9 +222,10 @@ public class ConsultActivity extends BaseActivity {
         child.setBackgroundResource(R.drawable.shape_consult);
         child.setText(s);
         child.setTextColor(Color.WHITE);
-        child.setTextSize(20);
+        child.setTextSize(16);
         child.setPadding(25, 15, 25, 15);
         initEvents(child, i);
+        AutoUtils.autoSize(child);
         flvConsult.addView(child);
     }
 
@@ -249,7 +253,7 @@ public class ConsultActivity extends BaseActivity {
                         break;
                     case 3:
                         Intent intent1 = new Intent(ConsultActivity.this,VideoActivity.class);
-                        intent1.putExtra(MyString.VIDEO,HTTP+answersBean.getVideoAddress());
+                        intent1.putExtra(MyString.VIDEO,answersBean.getVideoAddress());
                         startActivity(intent1);
                         break;
                 }

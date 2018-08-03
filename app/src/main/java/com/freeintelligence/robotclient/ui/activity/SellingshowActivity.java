@@ -73,7 +73,7 @@ public class SellingshowActivity extends Activity {
                        videoAddress = answersBean.getSellPointvid();
                    }
                     Intent intent = new Intent(App.activity, VideoActivity.class);
-                    intent.putExtra(MyString.VIDEO,HTTP+ videoAddress);
+                    intent.putExtra(MyString.VIDEO, videoAddress);
                     startActivity(intent);
                 }
             });

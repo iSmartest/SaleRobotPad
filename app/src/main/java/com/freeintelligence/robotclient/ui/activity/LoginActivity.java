@@ -1,6 +1,8 @@
 package com.freeintelligence.robotclient.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,6 +12,8 @@ import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.LoadcodeBean;
+import com.freeintelligence.robotclient.ui.moudel.LoginBean;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 
@@ -25,7 +29,7 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.et_login_account)
     EditText etLoginAccount;
     @BindView(R.id.et_login_possword)
-    EditText etLoginPossword;
+    EditText etLoginPassword;
     @BindView(R.id.tv_login_load)
     TextView tvLoginLoad;
 
@@ -48,32 +52,44 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-//        final String serialNum = android.os.Build.SERIAL;
+
         tvLoginLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                starinternet(serialNum);
-                starinternet("");
+                final String mAccount = etLoginAccount.getText().toString().trim();
+                final String mPassword = etLoginPassword.getText().toString().trim();
+                if (mAccount.isEmpty()){
+                    ToastUtils.makeText(context,"请输入账号");
+                    return;
+                }
+                if (mPassword.isEmpty()){
+                    ToastUtils.makeText(context,"请输入密码");
+                    return;
+                }
+                starinternet(mAccount,mPassword);
             }
         });
     }
 
-    private void starinternet(String serialNum) {
-
+    private void starinternet(String mAccount,String mPassword) {
         Map<String, String> map = new HashMap<>();
-        map.put("phone", "18332212560");
-        map.put("password", "1234");
-        map.put("index", "1");
-        MyOkhttp.Okhttp(context, Url.LOADLOGIN, "正在获取...", map, new MyOkhttp.CallBack() {
+        map.put("phone", mAccount);
+        map.put("password", mPassword);
+        map.put("index", "18337125295");
+        MyOkhttp.Okhttp(context, Url.LOGIN, "正在获取...", map, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
                 Gson gson = new Gson();
-                LoadcodeBean loadcodeBean = gson.fromJson(response, LoadcodeBean.class);
+                LoginBean loginBean = gson.fromJson(response,LoginBean.class);
                 if (result.equals("1")) {
                     ToastUtils.makeText(context, resultNote);
                     return;
                 }
-                ToastUtils.makeText(context, resultNote);
+                SPUtil.putString(context,"storeId",loginBean.getData().getStoreId()+"");
+
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

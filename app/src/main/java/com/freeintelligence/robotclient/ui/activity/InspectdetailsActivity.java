@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,9 +16,10 @@ import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.InspectdeailsBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.FlowGroupView;
-import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -27,9 +29,11 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class InspectdetailsActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.flow_view_group)
@@ -79,7 +83,7 @@ public class InspectdetailsActivity extends BaseActivity {
     @param type 类型 1维修 2保养
     @param detailId 详情id*/
         Map<String,String> params = new HashMap<>();
-        params.put("storeId", "1");
+        params.put("storeId",  SPUtil.getString(context,"storeId"));
         params.put("customerId", cid+"");
         params.put("type", type+"");
         params.put("detailId", id+"");
@@ -130,4 +134,8 @@ public class InspectdetailsActivity extends BaseActivity {
         lldeailsall.setVisibility(View.GONE);
     }
 
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
+    }
 }

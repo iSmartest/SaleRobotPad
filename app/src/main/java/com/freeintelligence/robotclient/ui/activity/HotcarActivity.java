@@ -18,6 +18,8 @@ import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.adapter.HotCarAdapter;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.HotcarBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
@@ -32,7 +34,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class HotcarActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.rb_tbl1)
     RadioButton rbTbl1;
     @BindView(R.id.rb_tbl2)
@@ -181,7 +184,7 @@ public class HotcarActivity extends BaseActivity {
         params.put(CARTYPE, cartype + "");
         params.put(PRICETYPE, pricetype + "");
         params.put(TYPE, "1");
-        params.put(STOREID, "1");
+        params.put(STOREID,  SPUtil.getString(context,"storeId"));
         params.put(PAGE, page + "");
         params.put(ROWS, "10");
         params.put(CARNAME, search);
@@ -279,18 +282,18 @@ public class HotcarActivity extends BaseActivity {
         });
     }
 
-
-    @OnClick(R.id.tv_search)
-    public void onViewClicked() {
-        String trim = svToolbar.getText().toString().trim();
-        if (trim != null && trim != "") {
-            loadData();
-        }
-    }
-
-    @OnClick({R.id.tv_hjiaochevariety, R.id.tv_hsuvvariety, R.id.tv_hmpvvariety, R.id.tv_hpaochevariety})
+    @OnClick({R.id.tv_search,R.id.title_Back,R.id.tv_hjiaochevariety, R.id.tv_hsuvvariety, R.id.tv_hmpvvariety, R.id.tv_hpaochevariety})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.tv_search:
+                String trim = svToolbar.getText().toString().trim();
+                if (trim != null && trim != "") {
+                    loadData();
+                }
+                break;
+            case R.id.title_Back:
+                AppManager.finishActivity();
+                break;
             case R.id.tv_hjiaochevariety:
                 if (chage != 1) {
                     chage = 1;

@@ -33,6 +33,7 @@
                     android:layout_width="839px"
                     android:layout_height="532px"
                     android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
                     android:background="@color/colorbgbule" />
 
                 <LinearLayout

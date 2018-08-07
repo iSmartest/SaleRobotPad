@@ -2,29 +2,9 @@ package com.freeintelligence.robotclient.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
-/*
-┏┛┻━━━┛┻┓
-┃           ┃
-┃     ━     ┃
-┃  ┳┛ ┗┳  ┃
-┃           ┃
-┃     ┻     ┃
-┃           ┃
-┗━┓    ┏━┛
-   ┃     ┃
-   ┃     ┃
-   ┃     ┗━━━┓
-   ┃  神兽保佑   ┣┓
-   ┃ 代码无BUG  ┏┛
-   ┗┓┓┏━┳┓┏┛
-Created 作者： 大姨夫 on 2017/9/26.
-站在顶峰,看世界
-跌落谷底,思人生
-*/
+
 public class DateUtils {
     /**
      * 获取系统时间戳

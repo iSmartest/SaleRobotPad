@@ -53,4 +53,10 @@
     <!--字体的灰色和蓝色-->
     <color name="colortextgrey">#99101010</color>
     <color name="colortextblue">#FF167CD5</color>
+
+    <color name="transparent">#0000</color>
+    <color name="text_color_main">#333333</color>
+    <color name="black_50_transparent">#50000000</color>
+
+
 </resources>

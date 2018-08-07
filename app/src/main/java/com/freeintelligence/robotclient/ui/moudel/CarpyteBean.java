@@ -61,7 +61,7 @@ public class CarpyteBean {
 
             private String name;
             private int id;
-
+            private String address;
             public String getName() {
                 return name;
             }
@@ -76,6 +76,14 @@ public class CarpyteBean {
 
             public void setId(int id) {
                 this.id = id;
+            }
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
             }
         }
     }

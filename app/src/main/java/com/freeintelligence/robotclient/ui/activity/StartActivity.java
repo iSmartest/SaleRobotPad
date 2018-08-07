@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -59,9 +60,15 @@ public class StartActivity extends AppCompatActivity {
                 finish();
             } else {
                 if (!TextUtils.isEmpty(SPUtil.getString(StartActivity.this, "storeId"))) {
-                    startActivity(new Intent(StartActivity.this,
-                            MainActivity.class));
-                    finish();
+                    if (!TextUtils.isEmpty(SPUtil.getString(StartActivity.this, "carId"))){
+                        startActivity(new Intent(StartActivity.this,
+                                MainActivity.class));
+                        finish();
+                    }else {
+                        startActivity(new Intent(StartActivity.this,
+                                HotCarSelectActivity.class));
+                        finish();
+                    }
                 } else {
                     startActivity(new Intent(StartActivity.this,
                             LoginActivity.class));
@@ -77,7 +84,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         StatusBarUtil.fullScreen(StartActivity.this);
         mStartTime = System.currentTimeMillis();//记录开始时间1
-        checkPermission();
+//        checkPermission();
+        mHandler.sendEmptyMessage(1);
     }
 
     private void saveTag() {
@@ -113,8 +121,14 @@ public class StartActivity extends AppCompatActivity {
                 permissionStrs.add(Manifest.permission.VIBRATE);
                 permissionStrs.add(Manifest.permission.CAMERA);
 
-            }
+                permissionStrs.add(Manifest.permission.LOCATION_HARDWARE);
+                permissionStrs.add(Manifest.permission.READ_PHONE_STATE);
+                permissionStrs.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+                permissionStrs.add(Manifest.permission.READ_CONTACTS);
+                permissionStrs.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                permissionStrs.add(Manifest.permission.ACCESS_FINE_LOCATION);
 
+            }
             String[] stringArray = permissionStrs.toArray(new String[0]);
             if (permissionStrs.size() > 0) {
                 requestPermissions(stringArray,

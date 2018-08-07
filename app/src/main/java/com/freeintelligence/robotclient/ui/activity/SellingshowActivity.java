@@ -1,114 +1,154 @@
 package com.freeintelligence.robotclient.ui.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.text.method.ScrollingMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.app.App;
+import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
+import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.ui.moudel.ConsultBean;
-import com.freeintelligence.robotclient.utils.GlideUtils;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
-import com.youth.banner.loader.ImageLoader;
-
-import java.util.ArrayList;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.view.PhotoView;
 import java.util.List;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-import static com.freeintelligence.robotclient.config.Url.HTTP;
 
-public class SellingshowActivity extends Activity {
-
-    @BindView(R.id.slidbanner)
-    Banner banner;
-    @BindView(R.id.iv_slid)
-    ImageView tvSlid;
+public class SellingshowActivity extends BaseActivity {
     @BindView(R.id.title_Back)
     ImageView mBack;
-    private List<String> list_path;
-    private ArrayList<String> list_title;
+    @BindView(R.id.toolbar)
+    RelativeLayout titleLayout;
+    @BindView(R.id.see_pager)
+    ViewPager mPager;
+    @BindView(R.id.ll_see_picture)
+    LinearLayout mLlPicture;
+    @BindView(R.id.text_total_item)
+    TextView mTotalItem;
+    @BindView(R.id.text_pic_info)
+    TextView mPicInfo;
+    @BindView(R.id.iv_play_video)
+    ImageView mPlay;
+    private ImageAdapter mImageAdapter;
+    private boolean isVISIBLE = true;
     private String videoAddress;
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_slideshow;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_slideshow);
-        ButterKnife.bind(this);
-        ConsultBean.DataBean.BrightPointBean answersBean = (ConsultBean.DataBean.BrightPointBean) getIntent().getSerializableExtra("selling");
+    protected void initView() {
+        titleLayout.setBackgroundColor(context.getResources().getColor(R.color.black_50_transparent));
+        final ConsultBean.DataBean.BrightPointBean answersBean = (ConsultBean.DataBean.BrightPointBean) getIntent().getSerializableExtra("selling");
         int consultint = answersBean.getType();
         switch (consultint){
             case 1:
-                tvSlid.setVisibility(View.VISIBLE);
+                mPlay.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                tvSlid.setVisibility(View.GONE);
+                mPlay.setVisibility(View.GONE);
                 break;
         }
-        mBack.setOnClickListener(new View.OnClickListener() {
+
+        mTotalItem.setText(1 + "/" + answersBean.getSellPointdsc().size());
+        mPicInfo.setText(answersBean.getSellPointdsc().get(0).getDsc());
+        mPicInfo.setMaxHeight(600);
+        mPicInfo.setMovementMethod(ScrollingMovementMethod.getInstance());
+        mPager.setPageMargin((int) (context.getResources().getDisplayMetrics().density * 15));
+        mImageAdapter = new ImageAdapter(context,answersBean.getSellPointdsc());
+        mPager.setAdapter(mImageAdapter);
+        mPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
-            public void onClick(View view) {
-                finish();
+            public void onPageSelected(int position) {
+                mTotalItem.setText((position + 1)+"/" + answersBean.getSellPointdsc().size());
+                mPicInfo.setText(answersBean.getSellPointdsc().get(position).getDsc());
             }
         });
-          loaddata(answersBean);
-          initview(answersBean);
+
+        mPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(answersBean!=null){
+                    videoAddress = answersBean.getSellPointvid();
+                }
+                Intent intent = new Intent(App.activity, VideoActivity.class);
+                intent.putExtra(MyString.VIDEO, videoAddress);
+                startActivity(intent);
+            }
+        });
+    }
+    @Override
+    protected void loadData() {
+
     }
 
-    private void loaddata(final ConsultBean.DataBean.BrightPointBean answersBean) {
-            tvSlid.setOnClickListener(new View.OnClickListener() {
+
+    public class ImageAdapter extends PagerAdapter {
+        private PhotoView photo_view;
+        private Context mContext;
+        private List<ConsultBean.DataBean.BrightPointBean.SellPointdscBean> mShopImgList;
+
+        public ImageAdapter(Context mContext, List<ConsultBean.DataBean.BrightPointBean.SellPointdscBean> mShopImgList) {
+            this.mContext = mContext;
+            this.mShopImgList = mShopImgList;
+        }
+
+        @Override
+        public int getCount() {
+            return mShopImgList.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            LinearLayout view = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.item_see_picture, null);
+            photo_view = view.findViewById(R.id.iv_see_picture);
+            photo_view.enable();
+            photo_view.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            Glide.with(mContext).load(Url.IMAGE_HTTP + mShopImgList.get(position).getImg()).into(photo_view);
+            photo_view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                   if(answersBean!=null){
-                       videoAddress = answersBean.getSellPointvid();
-                   }
-                    Intent intent = new Intent(App.activity, VideoActivity.class);
-                    intent.putExtra(MyString.VIDEO, videoAddress);
-                    startActivity(intent);
+                public void onClick(View v) {
+                    if (isVISIBLE){
+                        mLlPicture.setVisibility(View.GONE);
+                        titleLayout.setVisibility(View.GONE);
+                        isVISIBLE = false;
+                    }else {
+                        mLlPicture.setVisibility(View.VISIBLE);
+                        titleLayout.setVisibility(View.VISIBLE);
+                        isVISIBLE = true;
+                    }
                 }
             });
-    }
-
-
-    private void initview(ConsultBean.DataBean.BrightPointBean answersBean) {
-
-        list_path = new ArrayList<>();
-        list_path.clear();
-        list_title = new ArrayList<>();
-        list_title.clear();
-        if (answersBean == null) {
-            return;
+            container.addView(view);
+            return view;
         }
-        for (int i = 0; i < answersBean.getSellPointdsc().size(); i++) {
-            ConsultBean.DataBean.BrightPointBean.SellPointdscBean picsBean = answersBean.getSellPointdsc().get(i);
-            String des = picsBean.getDsc();
-            list_title.add(des);
-            String pic = picsBean.getImg();
-            list_path.add(pic);
-        }
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
-        banner.setImageLoader(new MyLoader());
-        banner.setImages(list_path);
-        banner.setBannerAnimation(Transformer.Default);
-        banner.setBannerTitles(list_title);
-        banner.isAutoPlay(false);
-        banner.setIndicatorGravity(BannerConfig.CENTER);
-        banner.start();
-    }
-    private class MyLoader extends ImageLoader {
+
         @Override
-        public void displayImage(Context context, Object path, ImageView imageView) {
-            GlideUtils.imageLoader(context,(String)path,imageView);
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
         }
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_32"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:orientation="vertical"
     android:background="@color/colorWhite">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_17"
-        android:textColor="@color/colorBlack"
-        android:text="2018-04-8   在本店洗车"
-        android:textSize="@dimen/dp_11"
-        android:layout_marginLeft="@dimen/dp_35"
-        android:id="@+id/tv_consume1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp_17"
-        android:layout_marginLeft="@dimen/dp_504"
-        android:textColor="@color/colorBlack"
-        android:text="300元"
-        android:textSize="@dimen/dp_11"
-       android:id="@+id/tv_consume2"/>
-
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:orientation="horizontal"
+        android:layout_marginLeft="130px"
+        android:layout_gravity="center"
+        android:layout_marginRight="130px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorBlack"
+            android:text="2018-04-8   在本店洗车"
+            android:textSize="@dimen/dp_11"
+            android:gravity="center"
+            android:id="@+id/tv_consume1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorBlack"
+            android:text="300元"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_11"
+            android:id="@+id/tv_consume2"/>
+    </LinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/divider_color"/>
+</LinearLayout>

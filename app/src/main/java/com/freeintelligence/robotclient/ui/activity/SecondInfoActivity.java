@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
@@ -17,8 +18,11 @@ import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.SecondBean;
 import com.freeintelligence.robotclient.ui.moudel.SeconddeailsBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.DateUtils;
+import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.freeintelligence.robotclient.utils.PriceUtils;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.MyRecyclerView;
 import com.google.gson.Gson;
@@ -30,8 +34,13 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SecondInfoActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
+    @BindView(R.id.iv_seconddeatial)
+    ImageView carPic;
     @BindView(R.id.rv_second)
     GridView rvSecond;
     @BindView(R.id.tv_sdname)
@@ -97,7 +106,7 @@ public class SecondInfoActivity extends BaseActivity {
 
     private void starintnet() {
         Map<String, String> map = new HashMap<>();
-        map.put("storeId", "1");
+        map.put("storeId",  SPUtil.getString(context,"storeId"));
         map.put("carId", id + "");
         MyOkhttp.Okhttp(context, Url.SECONDDEAILS, "加载中...", map, new MyOkhttp.CallBack() {
             @Override
@@ -135,6 +144,7 @@ public class SecondInfoActivity extends BaseActivity {
                 tvSd41.setText(common.getIsAccident());
                 tvSd42.setText(common.getIsFire());
                 tvSd43.setText(common.getIsWater());
+                GlideUtils.imageLoader(context,common.getPic(),carPic);
                 List<String> pics = common.getPics();
                 list.clear();
                 list.addAll(pics);
@@ -166,5 +176,9 @@ public class SecondInfoActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

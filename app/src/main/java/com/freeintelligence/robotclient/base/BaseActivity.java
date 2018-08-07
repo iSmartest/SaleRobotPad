@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.freeintelligence.robotclient.R;;
 import com.freeintelligence.robotclient.ui.activity.FirstVideoActivity;
 import com.freeintelligence.robotclient.app.App;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.StatusBarUtil;
 import com.zhy.autolayout.AutoLayoutActivity;
 
@@ -39,7 +40,6 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     private static long oneTime = 0 ;
     /** 第二次时间 */
     private static long twoTime = 0 ;
-    private ImageView mBack;
     static Handler myHandler = new Handler();
     protected Context context;
     static Runnable myRunnable = new Runnable(){
@@ -65,16 +65,10 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         App.activity = this;
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        mBack = findViewById(R.id.title_Back);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         initView();
         loadData();
         myHandler.postDelayed(myRunnable,60000);
+        AppManager.addActivity(this);
     }
 
 

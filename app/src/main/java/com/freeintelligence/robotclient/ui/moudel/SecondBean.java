@@ -99,6 +99,7 @@ public class SecondBean implements Serializable{
             private double price;
             private String name;
             private String images;
+            private String image;
             private int mold;
             private int id;
             private long time;
@@ -136,6 +137,14 @@ public class SecondBean implements Serializable{
 
             public void setImages(String images) {
                 this.images = images;
+            }
+
+            public String getImage() {
+                return image;
+            }
+
+            public void setImage(String image) {
+                this.image = image;
             }
 
             public int getMold() {

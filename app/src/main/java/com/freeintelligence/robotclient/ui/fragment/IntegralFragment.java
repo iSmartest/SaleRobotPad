@@ -17,6 +17,7 @@ import com.freeintelligence.robotclient.base.BaseFragment;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.LoadBean;
 import com.freeintelligence.robotclient.ui.moudel.VipBean;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 
@@ -79,7 +80,7 @@ public class IntegralFragment extends BaseFragment {
     @param type 类型  1积分  2消费
     @param page 分页*/
         Map<String, String> params = new HashMap<>();
-        params.put("storeId", "1");
+        params.put("storeId", SPUtil.getString(context,"storeId"));
         params.put("customerId", id + "");
         params.put("type", "1");
         params.put("page", "1");

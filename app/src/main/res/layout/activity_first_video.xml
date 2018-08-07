@@ -8,7 +8,8 @@
     android:background="@color/colorAppbg"
     tools:context="com.freeintelligence.robotclient.ui.activity.FirstVideoActivity">
 
-
+    <include layout="@layout/toolbar"
+        android:visibility="gone"/>
     <VideoView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

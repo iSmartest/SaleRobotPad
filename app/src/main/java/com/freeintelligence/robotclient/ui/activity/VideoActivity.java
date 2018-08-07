@@ -1,21 +1,14 @@
 package com.freeintelligence.robotclient.ui.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.WindowInsets;
-
-import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.config.MyString;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jzvd.JZVideoPlayer;
-import cn.jzvd.JZVideoPlayerManager;
 import cn.jzvd.JZVideoPlayerStandard;
 
 import static com.freeintelligence.robotclient.config.Url.IMAGE_HTTP;
@@ -38,9 +31,7 @@ public class VideoActivity extends Activity {
         jzVideoplayer.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(VideoActivity.this, ConsultActivity.class);
-                startActivity(intent);
-                VideoActivity.this.finish();
+                finish();
             }
         });
         jzVideoplayer.fullscreenButton.setVisibility(View.GONE);
@@ -49,9 +40,6 @@ public class VideoActivity extends Activity {
                 , JZVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN);
         //设置播放器封面
         jzVideoplayer.startVideo();
-       /* Glide.with(this)
-                .load("http://jzvd-pic.nathen.cn/jzvd-pic/1bb2ebbe-140d-4e2e-abd2-9e7e564f71ac.png")
-                .into(jzVideoplayer.thumbImageView);*/
     }
     @Override
     public void onBackPressed() {

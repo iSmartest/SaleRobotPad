@@ -1,7 +1,9 @@
 package com.freeintelligence.robotclient.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -13,13 +15,17 @@ import com.freeintelligence.robotclient.ui.fragment.InsuranceFragment;
 import com.freeintelligence.robotclient.ui.fragment.MaintainFragment;
 import com.freeintelligence.robotclient.ui.fragment.RepairFragment;
 import com.freeintelligence.robotclient.ui.moudel.LoadBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class InspectActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.rg_inspect)
     RadioGroup rgInspect;
     @BindView(R.id.rb_in1)
@@ -32,7 +38,6 @@ public class InspectActivity extends BaseActivity {
     RelativeLayout toolbar;
     @BindView(R.id.fl_inspect)
     FrameLayout flInspect;
-    private Map<String,String>map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +61,6 @@ public class InspectActivity extends BaseActivity {
         LoadBean.DataBean data = (LoadBean.DataBean)getIntent().getSerializableExtra(MyString.LOADDATA);
         bundle.putSerializable(MyString.INSPECTDATA,data);
         changeFragment(RepairFragment.class, R.id.fl_inspect, false, bundle, false);
-        //radiogroup的状态选择
         rgInspect.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -73,5 +77,9 @@ public class InspectActivity extends BaseActivity {
                 }
             }
         });
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

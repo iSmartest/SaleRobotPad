@@ -15,7 +15,7 @@
             android:layout_height="276px"
             android:background="@drawable/shape_sideline"
             android:src="@drawable/key"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:id="@+id/iv_show" />
         <View
             android:layout_width="match_parent"

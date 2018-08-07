@@ -2,6 +2,9 @@ package com.freeintelligence.robotclient.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.view.View;
+import android.widget.ImageView;
+
 import com.example.xrecyclerview.XRecyclerView;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.config.Url;
@@ -9,6 +12,8 @@ import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.adapter.BriefAdapter;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.BriefBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 import java.util.ArrayList;
@@ -18,8 +23,11 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BriefActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.rl_brief)
     XRecyclerView xRecyclerView;
     private int nowPage = 1;
@@ -40,7 +48,7 @@ public class BriefActivity extends BaseActivity {
     @Override
     protected void loadData() {
         Map<String, String> params = new HashMap<>();
-        params.put("storeId", "1");
+        params.put("storeId", SPUtil.getString(context,"storeId"));
         params.put("page", nowPage + "");
         MyOkhttp.Okhttp(context, Url.BRIEF, "加载中...", params, new MyOkhttp.CallBack() {
             @Override
@@ -87,5 +95,10 @@ public class BriefActivity extends BaseActivity {
                 xRecyclerView.loadMoreComplete();
             }
         });
+    }
+
+    @OnClick({R.id.title_Back})
+    public void onViewClicked(View view) {
+        AppManager.finishActivity();
     }
 }

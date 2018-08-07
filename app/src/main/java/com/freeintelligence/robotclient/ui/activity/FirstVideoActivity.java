@@ -8,21 +8,40 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.VideoView;
 
 import com.freeintelligence.robotclient.R;
+import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 
-public class FirstVideoActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.OnClick;
 
-    private VideoView videoView;
+import static com.freeintelligence.robotclient.config.Url.IMAGE_HTTP;
+
+public class FirstVideoActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
+    @BindView(R.id.videoView)
+    VideoView videoView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_video);
-        videoView = findViewById(R.id.videoView);
-        final String uri = "http://jzvd.nathen.cn/342a5f7ef6124a4a8faf00e738b8bee4/cf6d9db0bd4d41f59d09ea0a81e918fd-5287d2089db37e62345123a1be272f8b.mp4";
+    protected int getLayoutId() {
+        return R.layout.activity_first_video;
+    }
+
+    @Override
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected void initView() {
+        final String uri = IMAGE_HTTP + SPUtil.getString(context,"address");
         videoView.setVideoPath(uri);
         videoView.start();
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -37,13 +56,13 @@ public class FirstVideoActivity extends AppCompatActivity {
 
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        videoView.setVideoPath(uri);
-                        videoView.start();
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                videoView.setVideoPath(uri);
+                videoView.start();
 
-                    }
-                });
+            }
+        });
         videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
             @Override
             public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
@@ -84,9 +103,9 @@ public class FirstVideoActivity extends AppCompatActivity {
                 return false;
             }
         });
-        //设置为全屏模式播放
-       // setVideoViewLayoutParams(1);
     }
+
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()){
@@ -99,7 +118,9 @@ public class FirstVideoActivity extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 Intent intent = new Intent(this, ConsultActivity.class);
                 intent.putExtra(MyString.CONSULT,1);
+                intent.putExtra(MyString.INTENTHOTCAR, SPUtil.getString(context,"carId"));
                 startActivity(intent);
+                finish();
                 break;
         }
         return super.dispatchTouchEvent(ev);
@@ -122,4 +143,16 @@ public class FirstVideoActivity extends AppCompatActivity {
         super.onStop();
         videoView.stopPlayback();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        videoView.stopPlayback();
+    }
+
+    @OnClick({R.id.title_Back})
+    public void onViewClicked(View view) {
+        AppManager.finishActivity();
+    }
+
 }

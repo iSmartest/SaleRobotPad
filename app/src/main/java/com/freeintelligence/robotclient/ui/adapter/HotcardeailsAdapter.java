@@ -10,10 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
-import com.freeintelligence.robotclient.ui.activity.HotcardeailsActivity;
-import com.freeintelligence.robotclient.ui.moudel.HotcarBean;
 
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

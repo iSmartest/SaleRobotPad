@@ -24,7 +24,7 @@
     <string name="inspect2">保养</string>
     <string name="inspect3">保险</string>
     <!--卖点或亮点-->
-    <string name="selling">卖点</string>
+    <string name="selling">亮点</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">Sign in</string>

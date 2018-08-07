@@ -9,7 +9,7 @@
         android:id="@+id/iv_picsd"
         android:layout_width="376px"
         android:layout_height="161px"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:layout_marginLeft="8px"
         android:background="@drawable/image_item_style" />
 </LinearLayout>

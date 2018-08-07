@@ -16,10 +16,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.base.BaseActivity;
+import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.RobotconsultBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.JsonParser;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.google.gson.Gson;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
@@ -50,6 +53,8 @@ import xfyun.setting.IatSettings;
 
 public class RobotconsltActivity extends BaseActivity {
     private static String TAG = RobotconsltActivity.class.getSimpleName();
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.tv_this1)
     TextView tvThis1;
     @BindView(R.id.tv_robotan2)
@@ -121,7 +126,7 @@ public class RobotconsltActivity extends BaseActivity {
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
     }
 
-    @OnClick({R.id.iv_mic, R.id.iv_mic2, R.id.tv_robotan2})
+    @OnClick({R.id.title_Back, R.id.iv_mic, R.id.iv_mic2, R.id.tv_robotan2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_mic:
@@ -137,10 +142,10 @@ public class RobotconsltActivity extends BaseActivity {
                 onclick();
                 break;
             case R.id.tv_robotan2:
-                if(myanswers!=null&&myanswers.size()>0){
+                if (myanswers != null && myanswers.size() > 0) {
                     RobotconsultBean.DataBean.CarListBean.AnswersBean answersBean = myanswers.get(0);
                     int type = answersBean.getType();
-                    switch (type){
+                    switch (type) {
                         case 1:
                             //都有
                             Intent intent = new Intent(this, RobotdeailsActivity.class);
@@ -157,16 +162,20 @@ public class RobotconsltActivity extends BaseActivity {
                             break;
                         case 3:
                             //视频
-                            Intent intent2 = new Intent(this, RobotVideoActivity.class);
+                            Intent intent2 = new Intent(this, VideoActivity.class);
+                            intent2.putExtra(MyString.VIDEO, answersBean.getVideoAddress());
                             startActivity(intent2);
                             break;
+
                     }
                 }
-
-
+                break;
+            case R.id.title_Back:
+                AppManager.finishActivity();
                 break;
         }
     }
+
     private void onclick() {
         tvRobotan2.setText("");
         FlowerCollector.onEvent(RobotconsltActivity.this, "iat_recognize");
@@ -261,13 +270,13 @@ public class RobotconsltActivity extends BaseActivity {
         Map<String, String> map = new HashMap<>();
         //  keyWord  storeId
         map.put("keyWord", s);
-        map.put("storeId", "1");
-        map.put("cId","1");
+        map.put("storeId", SPUtil.getString(context, "storeId"));
+        map.put("cId", "1");
         MyOkhttp.Okhttp(context, Url.ROBOTCONSULT, "", map, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
                 Gson gson = new Gson();
-                RobotconsultBean robotconsultBean = gson.fromJson(response,RobotconsultBean.class);
+                RobotconsultBean robotconsultBean = gson.fromJson(response, RobotconsultBean.class);
                 if (robotconsultBean == null) {
                     tvThis1.setVisibility(View.VISIBLE);
                     tvRobotan2.setVisibility(View.VISIBLE);
@@ -284,13 +293,13 @@ public class RobotconsltActivity extends BaseActivity {
                         startts(robotconsultBean.getMsg());
                         RobotconsultBean.DataBean data = robotconsultBean.getData();
                         List<RobotconsultBean.DataBean.CarListBean> carList = data.getCarList();
-                        if(carList==null||carList.size()==0){
+                        if (carList == null || carList.size() == 0) {
                             tvRobotan2.setText("null");
-                        }else {
+                        } else {
                             RobotconsultBean.DataBean.CarListBean carListBean = carList.get(0);
 
-                            if(!TextUtils.isEmpty(carListBean.getName())&&carListBean.getAnswers()!=null&&carListBean.getAnswers().size()>0){
-                                if(!TextUtils.isEmpty(carListBean.getAnswers().get(0).getQuestion())){
+                            if (!TextUtils.isEmpty(carListBean.getName()) && carListBean.getAnswers() != null && carListBean.getAnswers().size() > 0) {
+                                if (!TextUtils.isEmpty(carListBean.getAnswers().get(0).getQuestion())) {
                                     tvRobotan2.setText(carListBean.getName() + carListBean.getAnswers().get(0).getQuestion());
                                     List<RobotconsultBean.DataBean.CarListBean.AnswersBean> answers = carListBean.getAnswers();
                                     myanswers.clear();

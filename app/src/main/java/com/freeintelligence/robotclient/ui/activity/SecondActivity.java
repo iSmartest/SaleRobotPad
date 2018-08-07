@@ -20,8 +20,9 @@ import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.adapter.SecondAdapter;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.SecondBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
-import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SecondActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.ll_search)
@@ -121,7 +124,7 @@ public class SecondActivity extends BaseActivity {
         map.put(CARTYPE, cartype + "");
         map.put(PRICETYPE, pricetype + "");
         map.put(TYPE, "2");
-        map.put(STOREID, "1");
+        map.put(STOREID,  SPUtil.getString(context,"storeId"));
         map.put(PAGE, "1");
         map.put(ROWS, "10");
         map.put(CARNAME, search);
@@ -297,7 +300,7 @@ public class SecondActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.tv_search,R.id.tv_jiaochevariety, R.id.tv_suvvariety, R.id.tv_mpvvariety, R.id.tv_paochevariety})
+    @OnClick({R.id.title_Back,R.id.tv_search,R.id.tv_jiaochevariety, R.id.tv_suvvariety, R.id.tv_mpvvariety, R.id.tv_paochevariety})
     public void onViewClicked(View view) {
 
         switch (view.getId()) {
@@ -355,6 +358,10 @@ public class SecondActivity extends BaseActivity {
                     mList.addAll(paoChe);
                     secondAdapter.notifyDataSetChanged();
                 }
+                break;
+
+            case R.id.title_Back:
+                AppManager.finishActivity();
                 break;
         }
     }

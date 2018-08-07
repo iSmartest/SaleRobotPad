@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
-import com.freeintelligence.robotclient.base.BaseActivity;
-import com.freeintelligence.robotclient.base.BaseAdapter;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;

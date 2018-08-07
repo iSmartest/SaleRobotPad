@@ -101,5 +101,4 @@ public class HotCarAdapter extends RecyclerView.Adapter<HotCarAdapter.HotCarView
 
         }
     }
-
 }

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import com.freeintelligence.robotclient.ui.adapter.QuestionAdapter;
 import com.freeintelligence.robotclient.app.App;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.QuestionBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.view.MyDialog;
 
 
@@ -25,7 +28,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 public class QuestionActivity extends BaseActivity implements View.OnClickListener {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     XRecyclerView rvQuestion;
     EditText etRename;
     RadioGroup rgResex;
@@ -181,7 +189,7 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
         map.put("question7", String.valueOf(answerList.get(6)));
         map.put("question8", String.valueOf(answerList.get(7)));
         map.put("question9", String.valueOf(answerList.get(8)));
-        map.put("storeId","1");
+        map.put("storeId", SPUtil.getString(context,"storeId"));
         map.put("name",name);
         map.put("age",age);
         map.put("sex",mSex);
@@ -198,5 +206,9 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
                 }
             }
         });
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

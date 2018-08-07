@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.base.BaseActivity;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -14,9 +15,11 @@ import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class PichotcarActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.banner_hotcar)
     Banner bannerHotcar;
     private ArrayList<? extends String> list_path;
@@ -70,5 +73,9 @@ public class PichotcarActivity extends BaseActivity {
         public void displayImage(Context context, Object path, ImageView imageView) {
             GlideUtils.imageLoader(context,(String)path,imageView);
         }
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

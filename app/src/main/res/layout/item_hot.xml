@@ -16,7 +16,7 @@
             android:layout_width="350px"
             android:layout_height="230px"
             android:layout_centerVertical="true"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:background="@drawable/image_item_style"
             android:src="@drawable/car" />
         <LinearLayout

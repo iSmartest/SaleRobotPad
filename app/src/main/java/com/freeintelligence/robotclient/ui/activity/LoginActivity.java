@@ -2,7 +2,6 @@ package com.freeintelligence.robotclient.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,7 +10,6 @@ import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
-import com.freeintelligence.robotclient.ui.moudel.LoadcodeBean;
 import com.freeintelligence.robotclient.ui.moudel.LoginBean;
 import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
@@ -86,8 +84,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                 }
                 SPUtil.putString(context,"storeId",loginBean.getData().getStoreId()+"");
-
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this,HotCarSelectActivity.class);
                 startActivity(intent);
                 finish();
             }

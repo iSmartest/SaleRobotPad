@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="@color/colortitlebar"
-    tools:context="com.freeintelligence.robotclient.ui.activity.TestdriveActivity">
+    tools:context="com.freeintelligence.robotclient.ui.activity.TestDriveActivity">
 
     <include
         layout="@layout/toolbar"
         android:id="@+id/toolbar"/>
-    <EditText
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_84"
-        android:paddingLeft="@dimen/dp_9"
-        android:id="@+id/tv_testdrivephone"
-        android:textColor="@color/colorBlack"
-        android:textColorHint="@color/edit_hint_color"
-        android:background="@color/colorWhite"
-        android:hint="@string/testdrive3"
-        android:textSize="@dimen/dp_11"
-        android:gravity="center_vertical"
-        android:inputType="phone"/>
-    <TextView
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_18"
-        android:id="@+id/tv_choosecar"
-        android:textColor="@color/colorword"
-        android:background="#FFFFFF"
-        android:text="@string/testdrive1"
-        android:textSize="@dimen/dp_11"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/dp_9"/>
-    <TextView
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_18"
-        android:id="@+id/tv_choosetime"
-        android:textColor="@color/colorword"
-        android:background="#FFFFFF"
-        android:text="@string/testdrive2"
-        android:textSize="@dimen/dp_11"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/dp_9"/>
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/dp_288"
-        android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_60"
-        android:background="@color/colorloadbg"
-        android:text="预约"
-        android:gravity="center"
-        android:textSize="@dimen/dp_11"
-        android:id="@+id/tv_testsub"/>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:layout_width="880px"
+            android:layout_height="84px"
+            android:id="@+id/tv_testdrivephone"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/edit_hint_color"
+            android:background="@color/colorWhite"
+            android:hint="@string/testdrive3"
+            android:textSize="28px"
+            android:gravity="center_vertical"
+            android:inputType="phone"
+            android:paddingLeft="55px"/>
+        <TextView
+            android:layout_width="880px"
+            android:layout_height="84px"
+            android:layout_marginTop="70px"
+            android:id="@+id/tv_choosecar"
+            android:textColor="@color/colorword"
+            android:background="#FFFFFF"
+            android:text="@string/testdrive1"
+            android:textSize="28px"
+            android:gravity="center_vertical"
+            android:paddingLeft="55px"/>
+        <TextView
+            android:layout_width="880px"
+            android:layout_height="84px"
+            android:layout_marginTop="70px"
+            android:id="@+id/tv_choosetime"
+            android:textColor="@color/colorword"
+            android:background="#FFFFFF"
+            android:text="@string/testdrive2"
+            android:textSize="28px"
+            android:gravity="center_vertical"
+            android:paddingLeft="55px"/>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="880px"
+            android:layout_height="84px"
+            android:layout_marginTop="218px"
+            android:background="@color/colorloadbg"
+            android:text="预约"
+            android:gravity="center"
+            android:textSize="28px"
+            android:id="@+id/tv_testsub"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

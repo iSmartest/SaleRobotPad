@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by za on 2018/6/20.
  */
 
-public class ConsumeAdapter extends RecyclerView.Adapter {
+public class ConsumeAdapter extends RecyclerView.Adapter<ConsumeAdapter.ConsumeViewHolder> {
     @BindView(R.id.tv_consume1)
     TextView tvConsume1;
     @BindView(R.id.tv_consume2)
@@ -32,18 +32,19 @@ public class ConsumeAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ConsumeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_consume, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ConsumeViewHolder viewHolder = new ConsumeViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ConsumeViewHolder viewHolder, int position) {
         Vip2Bean.DataBean.ConsumptionListBean consumptionListBean = list.get(position);
-        ((ViewHolder) holder).tvConsume1.setText(consumptionListBean.getContent());
-        ((ViewHolder) holder).tvConsume2.setText(consumptionListBean.getMoney()+"");
+        viewHolder.tvConsume1.setText(consumptionListBean.getContent());
+        viewHolder.tvConsume2.setText(consumptionListBean.getMoney() + "");
     }
+
     @Override
     public int getItemCount() {
         if (list != null && list.size() > 0) {
@@ -51,14 +52,16 @@ public class ConsumeAdapter extends RecyclerView.Adapter {
         }
         return 0;
     }
-    class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_consume1)
+
+    class ConsumeViewHolder extends RecyclerView.ViewHolder {
         TextView tvConsume1;
-        @BindView(R.id.tv_consume2)
         TextView tvConsume2;
-        ViewHolder(View itemView) {
+
+        ConsumeViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            tvConsume1 = itemView.findViewById(R.id.tv_consume1);
+            tvConsume2 = itemView.findViewById(R.id.tv_consume2);
+
         }
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colortitlebar">
+
+    <include layout="@layout/toolbar"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/tv_select_hot_car"
+            android:layout_width="953px"
+            android:layout_height="100px"
+            android:hint="请选择车型"
+            android:background="@color/colorWhite"
+            android:textColorHint="@color/edit_hint_color"
+            android:textColor="@color/colorBlack"
+            android:paddingLeft="44px"
+            android:gravity="center_vertical"
+            android:textSize="28px"/>
+
+        <TextView
+            android:id="@+id/tv_complete_setting"
+            android:layout_width="953px"
+            android:layout_height="100px"
+            android:layout_marginTop="240px"
+            android:background="@color/colorbgbule"
+            android:gravity="center"
+            android:text="完成"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+    </LinearLayout>
+
+
+</RelativeLayout>

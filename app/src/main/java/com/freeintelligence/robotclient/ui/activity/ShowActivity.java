@@ -2,6 +2,7 @@ package com.freeintelligence.robotclient.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.xrecyclerview.XRecyclerView;
@@ -11,6 +12,8 @@ import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.adapter.ShowAdapter;
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.ShowBean;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 
@@ -21,9 +24,11 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ShowActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.rl_show)
@@ -72,7 +77,7 @@ public class ShowActivity extends BaseActivity {
     @Override
     protected void loadData() {
         Map<String,String> map = new HashMap<>();
-        map.put("storeId", "1");
+        map.put("storeId",  SPUtil.getString(context,"storeId"));
         map.put("page", nowPage+"");
         MyOkhttp.Okhttp(context, Url.SHOW, "加载中", map, new MyOkhttp.CallBack() {
             @Override
@@ -92,4 +97,8 @@ public class ShowActivity extends BaseActivity {
         });
     }
 
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
+    }
 }

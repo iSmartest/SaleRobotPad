@@ -14,6 +14,7 @@ import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.activity.InspectdetailsActivity;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.Inspect2Bean;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -73,6 +74,7 @@ public class RepairAdapter extends RecyclerView.Adapter<RepairAdapter.RepairView
 
         RepairViewHolder(View itemView) {
             super(itemView);
+            AutoUtils.autoSize(itemView);
             tvContent = itemView.findViewById(R.id.tv_mtcontent);
             tvDes = itemView.findViewById(R.id.tv_mtdetails);
         }

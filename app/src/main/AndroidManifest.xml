@@ -63,6 +63,8 @@
         </activity>
         <activity android:name=".ui.activity.MainActivity"
             android:screenOrientation="landscape"/>
+        <activity android:name=".ui.activity.HotCarSelectActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".ui.activity.HotcarActivity"
             android:screenOrientation="landscape"
@@ -84,15 +86,12 @@
             android:name=".ui.activity.SubscribeActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ui.activity.SetActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".ui.activity.LoadActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ui.activity.TestdriveActivity"
+            android:name=".ui.activity.TestDriveActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -106,30 +105,11 @@
             android:name=".ui.activity.InspectdetailsActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ui.activity.NewCarInformationActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".ui.activity.ReceptiontableActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".ui.activity.BriefActivity"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".ui.activity.ProductshowActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".ui.activity.SecondInfoActivity"
             android:screenOrientation="landscape" />
-        <activity
-            android:name=".ui.activity.ShowdeailsActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".ui.activity.HotcardeailsActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".ui.activity.ShowActivity"
             android:screenOrientation="landscape" />
@@ -164,10 +144,6 @@
             android:name=".ui.activity.PicSecondActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ui.activity.SufaceActivity"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
             android:name=".ui.activity.FirstVideoActivity"
             android:screenOrientation="landscape" />
         <activity
@@ -175,9 +151,6 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".ui.activity.SellingshowActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".ui.activity.RobotVideoActivity"
             android:screenOrientation="landscape" />
 
         <meta-data android:name="design_width" android:value="1920"></meta-data>

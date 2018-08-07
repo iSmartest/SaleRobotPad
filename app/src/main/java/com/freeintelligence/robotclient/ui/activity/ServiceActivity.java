@@ -3,10 +3,12 @@ package com.freeintelligence.robotclient.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.base.BaseActivity;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 
 import butterknife.BindView;
@@ -14,7 +16,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ServiceActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.tv_service3)
     TextView tvService3;
     @BindView(R.id.tv_service2)
@@ -45,7 +48,7 @@ public class ServiceActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_service3, R.id.tv_service2, R.id.tv_service1,  R.id.tv_service5})
+    @OnClick({R.id.title_Back,R.id.tv_service3, R.id.tv_service2, R.id.tv_service1,  R.id.tv_service5})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_service3://跳转呼叫服务页面
@@ -53,7 +56,6 @@ public class ServiceActivity extends BaseActivity {
                 break;
             case R.id.tv_service1:
                 //跳转接待表页面
-                // Intent reptableintent = new Intent(this, ReceptiontableActivity.class);
                 Intent reptableintent = new Intent(this, QuestionActivity.class);
                 startActivity(reptableintent);
                 break;
@@ -62,15 +64,13 @@ public class ServiceActivity extends BaseActivity {
                 Intent briefintent = new Intent(this, BriefActivity.class);
                 startActivity(briefintent);
                 break;
-           /* case R.id.tv_service4:
-                //跳转新车资讯页面
-                Intent newcarintent = new Intent(this, NewCarInformationActivity.class);
-                startActivity(newcarintent);*/
-              //  break;
             case R.id.tv_service5:
                 //跳转产品展示页面
                 Intent showintent = new Intent(this, ShowActivity.class);
                 startActivity(showintent);
+                break;
+            case R.id.title_Back:
+                AppManager.finishActivity();
                 break;
         }
     }

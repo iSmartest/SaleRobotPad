@@ -2,22 +2,24 @@ package com.freeintelligence.robotclient.ui.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.freeintelligence.robotclient.R;
 
 import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.Url;
+import com.freeintelligence.robotclient.dialog.SelectCarStyleDialog;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.CarpyteBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.DateUtils;
 import com.freeintelligence.robotclient.utils.RegexpUtils;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 
@@ -33,8 +35,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TestdriveActivity extends BaseActivity {
-
+public class TestDriveActivity extends BaseActivity {
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.tv_choosecar)
@@ -47,10 +50,9 @@ public class TestdriveActivity extends BaseActivity {
     EditText tvTestdrivephone;
 
     private TimePickerView pvTime;
-    private OptionsPickerView pvCustomOptions;
     private List<String> carlist = new ArrayList<>();
     private int id;
-    private List<CarpyteBean.DataBean.CarTypeListBean> carTypeList;
+    private List<CarpyteBean.DataBean.CarTypeListBean> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class TestdriveActivity extends BaseActivity {
     @Override
     protected void loadData() {
         Map<String, String> maps = new HashMap<>();
-        maps.put("storeId", "1");
+        maps.put("storeId",  SPUtil.getString(context,"storeId"));
         MyOkhttp.Okhttp(context, Url.CARTAPY, "获取车型...", maps, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
@@ -77,18 +79,10 @@ public class TestdriveActivity extends BaseActivity {
                     return;
                 }
                 CarpyteBean.DataBean data = carpyteBean.getData();
-                carTypeList = data.getCarTypeList();
-                carlist.clear();
-                if (carTypeList != null && carTypeList.size() > 0) {
-                    for (int i = 0; i < carTypeList.size(); i++) {
-                        CarpyteBean.DataBean.CarTypeListBean carTypeListBean = carTypeList.get(i);
-                        String name = carTypeListBean.getName();
-                        carlist.add(name);
-                    }
-                } else {
-                    carlist.add("暂无车辆");
+                List<CarpyteBean.DataBean.CarTypeListBean> carTypeList = carpyteBean.getData().getCarTypeList();
+                if (carTypeList != null && !carTypeList.isEmpty() && carTypeList.size() > 0) {
+                    mList.addAll(carTypeList);
                 }
-                initCustomOptionPicker();
             }
         });
     }
@@ -96,7 +90,7 @@ public class TestdriveActivity extends BaseActivity {
 
     private void starinternet(String phone, String time) {
         Map<String, String> params = new HashMap<>();
-        params.put("storeId", "1");
+        params.put("storeId", SPUtil.getString(context,"storeId"));
         params.put("date", time);
         params.put("phoneNumber", phone);
         params.put("carId", id + "");
@@ -117,11 +111,19 @@ public class TestdriveActivity extends BaseActivity {
         initTimePicker();
     }
 
-    @OnClick({R.id.tv_choosecar, R.id.tv_choosetime, R.id.tv_testsub})
+    @OnClick({R.id.title_Back,R.id.tv_choosecar, R.id.tv_choosetime, R.id.tv_testsub})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_choosecar:
-                pvCustomOptions.show();
+                SelectCarStyleDialog selectCarStyleDialog = new SelectCarStyleDialog(context, mList, new SelectCarStyleDialog.OnSureBtnClickListener() {
+                    @Override
+                    public void sure(int position) {
+                        String tx = carlist.get(position);
+                        id = mList.get(position).getId();
+                        tvChoosecar.setText(tx);
+                    }
+                });
+                selectCarStyleDialog.show();
                 break;
             case R.id.tv_choosetime:
                 pvTime.show();
@@ -140,24 +142,10 @@ public class TestdriveActivity extends BaseActivity {
                 }
                 starinternet(phone, time);
                 break;
-
+            case R.id.title_Back:
+                AppManager.finishActivity();
+                break;
         }
-    }
-
-    private void initCustomOptionPicker() {
-        pvCustomOptions = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3, View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = carlist.get(options1);
-                id = carTypeList.get(options1).getId();
-                tvChoosecar.setText(tx);
-            }
-        })
-                .isDialog(true)
-                .build();
-
-        pvCustomOptions.setPicker(carlist);//添加数据
     }
 
     private void initTimePicker() {

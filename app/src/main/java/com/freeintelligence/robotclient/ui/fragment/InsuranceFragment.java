@@ -16,6 +16,7 @@ import com.freeintelligence.robotclient.base.BaseFragment;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.InsuranceBean;
 import com.freeintelligence.robotclient.ui.moudel.LoadBean;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
@@ -63,7 +64,7 @@ public class InsuranceFragment extends BaseFragment{
     }
     private void starintnet() {
         Map<String,String> params = new HashMap<>();
-        params.put("storeId","1");
+        params.put("storeId", SPUtil.getString(context,"storeId"));
         params.put("customerId",id+"");
         params.put("type","3");
         MyOkhttp.Okhttp(context, Url.INSPRCT, "加载中...", params, new MyOkhttp.CallBack() {

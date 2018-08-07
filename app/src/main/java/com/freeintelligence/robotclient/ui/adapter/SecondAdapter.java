@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.activity.SecondInfoActivity;
-import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.SecondBean;
 import com.freeintelligence.robotclient.utils.DateUtils;
@@ -22,8 +21,6 @@ import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by za on 2018/6/20.
@@ -49,7 +46,7 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondView
     @Override
     public void onBindViewHolder(@NonNull SecondViewHolder viewHolder, int position) {
         final SecondBean.DataBean.CarBean carListBean = data.get(position);
-        GlideUtils.imageLoader(context,carListBean.getImages(),viewHolder.ivTseond);
+        GlideUtils.imageLoader(context,carListBean.getImage(),viewHolder.ivTseond);
         viewHolder.tvSecond1.setText(carListBean.getName());
         long time = carListBean.getTime();
         String dateToString = DateUtils.getDateToString(time, "yyy-MM-dd");

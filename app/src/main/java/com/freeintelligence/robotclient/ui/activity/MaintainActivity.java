@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,9 +15,10 @@ import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.UpkeepBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.DateUtils;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
-import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
@@ -32,7 +34,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MaintainActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.tv_project)
@@ -43,9 +46,12 @@ public class MaintainActivity extends BaseActivity {
     TextView tvMaintainsub;
     @BindView(R.id.tv_number)
     EditText tvNumber;
+    @BindView(R.id.tv_phone_number)
+    EditText tvPhoneNumber;
     private TimePickerView pvTime;
     private OptionsPickerView pvCustomOptions;
     private List<String> mainlist;
+    private String type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,7 @@ public class MaintainActivity extends BaseActivity {
 
     @Override
     protected void loadData() {
-        mainlist=new ArrayList<>();
+        mainlist = new ArrayList<>();
         mainlist.add("维修");
         mainlist.add("保养");
         initTimePicker();
@@ -73,12 +79,15 @@ public class MaintainActivity extends BaseActivity {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
-                String tx =mainlist.get(options1);
-
+                String tx = mainlist.get(options1);
                 tvProject.setText(tx);
+                if (tx.equals("维修")) {
+                    type = "1";
+                } else {
+                    type = "2";
+                }
             }
         })
-
                 .isDialog(true)
                 .build();
 
@@ -89,7 +98,8 @@ public class MaintainActivity extends BaseActivity {
     protected void initView() {
 
     }
-    @OnClick({R.id.tv_project, R.id.tv_number, R.id.tv_time, R.id.tv_maintainsub})
+
+    @OnClick({R.id.title_Back,R.id.tv_project, R.id.tv_number, R.id.tv_time, R.id.tv_maintainsub})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_project:
@@ -98,26 +108,49 @@ public class MaintainActivity extends BaseActivity {
             case R.id.tv_number:
                 break;
             case R.id.tv_time:
-               pvTime.show();
+                pvTime.show();
                 break;
             case R.id.tv_maintainsub:
-                starinternet();
+                if (type.isEmpty()) {
+                    ToastUtils.makeText(context, "请选择预约项目");
+                    return;
+                }
+                String carNumber = tvNumber.getText().toString().trim();
+                if (carNumber.isEmpty()) {
+                    ToastUtils.makeText(context, "请输入车牌号");
+                    return;
+                }
+                String date = tvTime.getText().toString();
+                if (date.isEmpty()) {
+                    ToastUtils.makeText(context, "请选择维修/保养时间");
+                    return;
+                }
+                String phoneNumber = tvPhoneNumber.getText().toString().trim();
+
+                if (phoneNumber.isEmpty()) {
+                    ToastUtils.makeText(context, "请输入手机号");
+                    return;
+                }
+                starinternet(carNumber, date, phoneNumber);
+                break;
+            case R.id.title_Back:
+                AppManager.finishActivity();
                 break;
         }
     }
-    private void starinternet() {
+
+    private void starinternet(String carNumber, String date, String phoneNumber) {
        /* @param storeId 4s店id
         @param date 时间
         @param phoneNumber 手机号
         @param carNumber 车牌号
         @param type 类型 1维修 2保养*/
-        Map<String,String> params =new HashMap<>();
-        String s = tvNumber.getText().toString();
-        params.put("storeId","1");
-        params.put("data",s);
-        params.put("phoneNumber","18332212560");
-        params.put("carNumber","1");
-        params.put("type","1");
+        Map<String, String> params = new HashMap<>();
+        params.put("storeId", SPUtil.getString(context, "storeId"));
+        params.put("date", date);
+        params.put("phoneNumber", phoneNumber);
+        params.put("carNumber", carNumber);
+        params.put("type", type);
         MyOkhttp.Okhttp(context, Url.MAINTAIN, "加载中...", params, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
@@ -127,11 +160,10 @@ public class MaintainActivity extends BaseActivity {
                     ToastUtils.makeText(context, resultNote);
                     return;
                 }
-                ToastUtils.makeText(context,"预约成功");
-
+                ToastUtils.makeText(context, "预约成功");
             }
         });
-        }
+    }
 
     private void initTimePicker() {
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
@@ -150,15 +182,15 @@ public class MaintainActivity extends BaseActivity {
         Calendar startDate = Calendar.getInstance();
         startDate.set(year_int, mouth_int - 1, day_int);
         Calendar endDate = Calendar.getInstance();
-        endDate.set(year_int+50, mouth_int - 1, day_int);
+        endDate.set(year_int + 50, mouth_int - 1, day_int);
         //选中事件回调
         pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {//选中事件回调
-                tvTime.setText(DateUtils.dateToString(date,"yyy-MM-dd"));
+                tvTime.setText(DateUtils.dateToString(date, "yyy-MM-dd"));
             }
-        })       .setType(new boolean[]{true, true, true, false, false, false}) //年月日时分秒 的显示与否，不设置则默认全部显示
-                .setLabel("年", "月", "日","","","")//默认设置为年月日时分秒
+        }).setType(new boolean[]{true, true, true, false, false, false}) //年月日时分秒 的显示与否，不设置则默认全部显示
+                .setLabel("年", "月", "日", "", "", "")//默认设置为年月日时分秒
                 .isCenterLabel(false)
                 .setDividerColor(Color.RED)
                 .setTextColorCenter(Color.RED)//设置选中项的颜色
@@ -166,8 +198,8 @@ public class MaintainActivity extends BaseActivity {
                 .setContentSize(21)
                 .setDate(selectedDate)
                 .setLineSpacingMultiplier(1.2f)
-                .setTextXOffset(-10, 0,10, 0, 0, 0)//设置X轴倾斜角度[ -90 , 90°]
-                .setRangDate(startDate,endDate)
+                .setTextXOffset(-10, 0, 10, 0, 0, 0)//设置X轴倾斜角度[ -90 , 90°]
+                .setRangDate(startDate, endDate)
 //                .setBackgroundId(0x00FFFFFF) //设置外部遮罩颜色
                 .setDecorView(null)
                 .build();

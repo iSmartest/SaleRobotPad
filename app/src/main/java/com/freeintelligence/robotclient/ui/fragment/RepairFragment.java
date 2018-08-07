@@ -3,6 +3,7 @@ package com.freeintelligence.robotclient.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.freeintelligence.robotclient.base.BaseFragment;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.Inspect2Bean;
 import com.freeintelligence.robotclient.ui.moudel.LoadBean;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.google.gson.Gson;
 
@@ -60,12 +62,13 @@ public class RepairFragment extends BaseFragment {
     @Override
     protected void loadData() {
         Map<String, String> params = new HashMap<>();
-        params.put("storeId", "1");
+        params.put("storeId",  SPUtil.getString(context,"storeId"));
         params.put("customerId", id+"");
         params.put("type", "2");
         MyOkhttp.Okhttp(context, Url.INSPRCT, "加载中...", params, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
+                Log.i("TAG", "onRequestComplete: " + response);
                 Gson gson = new Gson();
                 Inspect2Bean inspect2Bean = gson.fromJson(response,Inspect2Bean.class);
                 if (result.equals("1")){

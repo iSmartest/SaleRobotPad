@@ -23,11 +23,11 @@
             android:background="@drawable/selector_inspectbg"
             android:button="@null"
             android:checked="true"
-            android:gravity="center"
             android:focusable="true"
+            android:gravity="center"
             android:text="@string/inspect1"
-            android:textSize="28px"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="28px" />
 
         <View
             android:layout_width="match_parent"
@@ -70,6 +70,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:layout_toRightOf="@+id/rg_inspect">
-    </FrameLayout>
+        android:layout_toRightOf="@+id/rg_inspect"></FrameLayout>
 </RelativeLayout>

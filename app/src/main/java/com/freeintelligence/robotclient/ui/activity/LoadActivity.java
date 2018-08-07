@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,12 +20,12 @@ import com.freeintelligence.robotclient.config.Url;
 import com.freeintelligence.robotclient.okhttp.MyOkhttp;
 import com.freeintelligence.robotclient.ui.moudel.LoadBean;
 import com.freeintelligence.robotclient.ui.moudel.LoadcodeBean;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.RegexpUtils;
+import com.freeintelligence.robotclient.utils.SPUtil;
 import com.freeintelligence.robotclient.utils.ToastUtils;
-import com.freeintelligence.robotclient.view.MyDialog;
 import com.google.gson.Gson;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +34,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoadActivity extends BaseActivity {
-
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.toolbar)
     RelativeLayout toolbar;
     @BindView(R.id.et_phone)
@@ -73,9 +75,9 @@ public class LoadActivity extends BaseActivity {
         time = new TimeCount(60000, 1000);
     }
 
-    @OnClick({R.id.tv_vcode, R.id.tv_load})
-    public void onViewClicked(View view) {
 
+    @OnClick({R.id.title_Back,R.id.tv_vcode, R.id.tv_load})
+    public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_vcode:
                 String phone = etPhone.getText().toString().trim();
@@ -101,6 +103,8 @@ public class LoadActivity extends BaseActivity {
                 } else {
                     showToast(this, "请输入正确的电话号码");
                 }
+            case R.id.title_Back:
+                AppManager.finishActivity();
                 break;
         }
     }
@@ -111,7 +115,7 @@ public class LoadActivity extends BaseActivity {
         map.put("phoneNumber", phone1);
         map.put("code", vcode);
         map.put("sessionId", sessionId);
-        map.put("storeId", "1");
+        map.put("storeId", SPUtil.getString(context,"storeId"));
         MyOkhttp.Okhttp(context, Url.LOADLOGIN, "正在登录...", map, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
@@ -146,7 +150,7 @@ public class LoadActivity extends BaseActivity {
         // sendCode   参数  mobile   storeId
         Map<String, String> map = new HashMap<>();
         map.put("mobile", phone);
-        map.put("storeId", "1");
+        map.put("storeId",  SPUtil.getString(context,"storeId"));
         MyOkhttp.Okhttp(context, Url.LOADVCODE, "正在获取...", map, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {

@@ -3,11 +3,13 @@ package com.freeintelligence.robotclient.ui.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.base.BaseActivity;
+import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.GlideUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -18,9 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class PicSecondActivity extends BaseActivity {
 
+    @BindView(R.id.title_Back)
+    ImageView mBack;
     @BindView(R.id.banner_second)
     Banner bannerSecond;
     private ArrayList<? extends String> list_path;
@@ -84,5 +89,9 @@ public class PicSecondActivity extends BaseActivity {
         public void displayImage(Context context, Object path, ImageView imageView) {
             GlideUtils.imageLoader(context,(String)path,imageView);
         }
+    }
+    @OnClick({R.id.title_Back})
+    public void onViewClicked() {
+        AppManager.finishActivity();
     }
 }

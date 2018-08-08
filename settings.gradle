@@ -1,1 +1,1 @@
-include ':app',':xrecyclerview',':recyclerviewanimators'
+include ':app',':xrecyclerview',':recyclerviewanimators',':videoplayer'

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SaleRobotPad.iml" filepath="$PROJECT_DIR$/SaleRobotPad.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerviewanimators/recyclerviewanimators.iml" filepath="$PROJECT_DIR$/recyclerviewanimators/recyclerviewanimators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/videoplayer/videoplayer.iml" filepath="$PROJECT_DIR$/videoplayer/videoplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrecyclerview/xrecyclerview.iml" filepath="$PROJECT_DIR$/xrecyclerview/xrecyclerview.iml" />
     </modules>
   </component>

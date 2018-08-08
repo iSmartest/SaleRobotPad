@@ -47,7 +47,6 @@ public class InspectdetailsActivity extends BaseActivity {
     @BindView(R.id.tv_indealis3)
     TextView tvIndealis3;
     private ArrayList<String> names;
-    private Map<String, String> map;
     private int id=0;
     private int type=1;
     private int cid=1;
@@ -66,7 +65,6 @@ public class InspectdetailsActivity extends BaseActivity {
     @SuppressLint("ResourceAsColor")
     @Override
     protected void loadData() {
-        map = new HashMap<>();
         names = new ArrayList<String>();
         int intExtra = getIntent().getIntExtra(MyString.INTENTINSPECTID, 1);
         id=intExtra;

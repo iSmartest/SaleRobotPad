@@ -48,12 +48,10 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.9'
     //搜索框
     implementation 'com.carson_ho:SearchLayout:1.0.1'
-    implementation 'cn.jzvd:jiaozivideoplayer:6.2.12'
     implementation files('libs/Msc.jar')
     //自定义事件选择器
     implementation 'com.contrarywind:Android-PickerView:3.2.7'
     implementation project(':recyclerviewanimators')
     implementation project(':xrecyclerview')
-
-
+    implementation project(':videoplayer')
 }

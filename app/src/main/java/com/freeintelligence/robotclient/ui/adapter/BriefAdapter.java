@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
-import com.freeintelligence.robotclient.ui.activity.DetailsActivity;
 import com.freeintelligence.robotclient.config.MyString;
+import com.freeintelligence.robotclient.ui.activity.VideoActivity;
 import com.freeintelligence.robotclient.ui.moudel.BriefBean;
 import com.freeintelligence.robotclient.utils.GlideUtils;
 
@@ -53,8 +52,8 @@ public class BriefAdapter extends RecyclerView.Adapter<BriefAdapter.BriefViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailsActivity.class);
-                intent.putExtra(MyString.INTENTIBRIEFADRESS,carVideoBean.getAddress());
+                Intent intent = new Intent(context, VideoActivity.class);
+                intent.putExtra(MyString.VIDEO,carVideoBean.getAddress());
                 context.startActivity(intent);
             }
         });

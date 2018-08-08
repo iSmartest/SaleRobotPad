@@ -101,12 +101,12 @@ public class SecondActivity extends BaseActivity {
     private final String CARNAME = "carName";
     private SecondAdapter secondAdapter;
     private String search;
-    private List<SecondBean.DataBean.CarBean> jiaoChe;
-    private List<SecondBean.DataBean.CarBean> suv;
-    private List<SecondBean.DataBean.CarBean> mpv;
-    private List<SecondBean.DataBean.CarBean> paoChe;
+    private List<SecondBean.DataBean.CarBean> jiaoChe = new ArrayList<>();
+    private List<SecondBean.DataBean.CarBean> suv = new ArrayList<>();
+    private List<SecondBean.DataBean.CarBean> mpv = new ArrayList<>();
+    private List<SecondBean.DataBean.CarBean> paoChe = new ArrayList<>();
     private int chage=1;
-
+    private int nowPage = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +125,7 @@ public class SecondActivity extends BaseActivity {
         map.put(PRICETYPE, pricetype + "");
         map.put(TYPE, "2");
         map.put(STOREID,  SPUtil.getString(context,"storeId"));
-        map.put(PAGE, "1");
+        map.put(PAGE, nowPage+"");
         map.put(ROWS, "10");
         map.put(CARNAME, search);
         MyOkhttp.Okhttp(context, Url.HOTCAR, "加载中...", map, new MyOkhttp.CallBack() {
@@ -174,6 +174,7 @@ public class SecondActivity extends BaseActivity {
                     }
                 }
                 mList.clear();
+
                 if(jiaoChe!=null&&jiaoChe.size()>0){
                     mList.addAll(jiaoChe);
                     chage=1;
@@ -234,6 +235,7 @@ public class SecondActivity extends BaseActivity {
         rlSecond.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
+                nowPage = 1;
                 mList.clear();
                 secondAdapter.notifyDataSetChanged();
                 loadData();

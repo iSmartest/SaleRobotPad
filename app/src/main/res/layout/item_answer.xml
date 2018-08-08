@@ -17,7 +17,7 @@
         android:drawablePadding="16px"
         android:scaleX="1"
         android:scaleY="1"
-        android:text="刷卡支付"
+        android:text=""
         android:textColor="@color/colorBlack"
         android:textSize="28px" />
 

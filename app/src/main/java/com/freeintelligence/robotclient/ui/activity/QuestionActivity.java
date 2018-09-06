@@ -20,6 +20,7 @@ import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.ui.moudel.QuestionBean;
 import com.freeintelligence.robotclient.utils.AppManager;
 import com.freeintelligence.robotclient.utils.SPUtil;
+import com.freeintelligence.robotclient.utils.ToastUtils;
 import com.freeintelligence.robotclient.view.MyDialog;
 
 
@@ -156,19 +157,19 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
                 String phone = etRephone.getText().toString().trim();
                 String age = etReAge.getText().toString().trim();
                 if (name.isEmpty()){
-                    showToast(App.activity, "请输入您的姓名！");
+                    ToastUtils.makeText(context, "请输入您的姓名！");
                     return;
                 }
                 if (mSex.isEmpty()){
-                    showToast(App.activity, "请选择性别！");
+                    ToastUtils.makeText(context, "请选择性别！");
                     return;
                 }
                 if (age.isEmpty()){
-                    showToast(App.activity, "请输入您的年龄！");
+                    ToastUtils.makeText(context, "请输入您的年龄！");
                     return;
                 }
                 if (phone.isEmpty()){
-                    showToast(App.activity, "请输入您的手机号！");
+                    ToastUtils.makeText(context, "请输入您的手机号！");
                     return;
                 }
 
@@ -199,9 +200,9 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
                 if (result.equals("1")){
-                    showToast(QuestionActivity.this,resultNote);
+                    ToastUtils.makeText(context,resultNote);
                 }else {
-                    showToast(QuestionActivity.this,resultNote);
+                    ToastUtils.makeText(context,resultNote);
                     finish();
                 }
             }

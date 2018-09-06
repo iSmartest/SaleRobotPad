@@ -6,9 +6,9 @@ package com.freeintelligence.robotclient.config;
  */
 public class Url {
     //服务器地址
-//    public static final String HTTP ="http://101.200.60.12:8080/robot-manager-web/pai/car";//网络地址
+    public static final String HTTP ="http://101.200.60.12:8080/robot-manager-web/pai/car";//网络地址
     public static final String IMAGE_HTTP = "http://101.200.60.12:8080/robot-manager-web";
-    public static final String HTTP ="http://192.168.1.6:8080/robot-manager-web/pai/car";//本地地址
+//    public static final String HTTP ="http://192.168.1.6:8080/robot-manager-web/pai/car";//本地地址
     public static final String HOTCAR=HTTP+"/carList";
     public static final String HOTCARDEAILS=HTTP+"/car";//新车详情
     public static final String SECONDDEAILS=HTTP+"/secondCar";//二手车详情

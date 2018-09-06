@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAppbg"
+    android:background="@color/colorNewCartitle"
     tools:context="com.freeintelligence.robotclient.ui.activity.FirstVideoActivity">
 
 
@@ -15,7 +15,7 @@
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="match_parent"
+            android:layout_centerInParent="true"
             android:layout_height="match_parent" />
-
     </RelativeLayout>
 </LinearLayout>

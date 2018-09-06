@@ -3,9 +3,11 @@ package com.freeintelligence.robotclient.ui.activity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -34,7 +36,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.freeintelligence.robotclient.R;;
+import com.freeintelligence.robotclient.base.BaseActivity;
 import com.freeintelligence.robotclient.config.Url;
+import com.freeintelligence.robotclient.okhttp.OkHttpUtils;
+import com.freeintelligence.robotclient.okhttp.budiler.StringCallback;
+import com.freeintelligence.robotclient.utils.AppManager;
+import com.freeintelligence.robotclient.utils.SPUtil;
+import com.freeintelligence.robotclient.utils.ToastUtils;
+import com.google.gson.Gson;
+import com.robot.performlib.action.SpeakAction;
+import com.robot.performlib.action.WakeupAction;
+import com.robot.performlib.callback.PerformFaceDetectCallBack;
+import com.robot.performlib.performs.CognizePerform;
+import com.yunjichina.callback.FaceDetectCallback;
+import com.yunjichina.constant.FaceDetectConstant;
+import com.yunjichina.facedetect.demo.FaceDetectAction;
+import com.yunjichina.vision.facedetect.FaceRect;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -44,7 +61,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -55,26 +77,46 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 
-public class ORCActivity888 extends AppCompatActivity {
+public class ORCActivity888 extends BaseActivity {
     public static final int TAKE_PHOTO = 1;//启动相机标识
-    private ImageView imageView;
-    private TextView textView;
+    @BindView(R.id.title_Back)
+    ImageView mBack;
+    @BindView(R.id.shangchuan_img)
+    ImageView imageView;
+    @BindView(R.id.chazhi_tv)
+    TextView textView;
     private File outputImagepath;//存储拍完照后的图片
     private Bitmap orc_bitmap;//拍照和相册获取图片的Bitmap
+    private boolean isAddFace = false;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orc888);
-        imageView =  findViewById(R.id.shangchuan_img);
-        textView =  findViewById(R.id.chazhi_tv);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                xiangjiClick(view);
-            }
-        });
+    protected int getLayoutId() {
+        return R.layout.activity_orc888;
+    }
+
+    @Override
+    protected void loadData() {
 
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @OnClick({R.id.title_Back,R.id.chazhi_tv})
+    public void onViewClicked(View view) {
+        switch (view.getId()){
+            case R.id.chazhi_tv:
+               xiangjiClick(textView);
+                break;
+            case R.id.title_Back:
+                AppManager.finishActivity();
+                break;
+        }
+    }
+
+
+
 
     /**
      * 打开相机
@@ -153,7 +195,7 @@ public class ORCActivity888 extends AppCompatActivity {
            new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    upImage(imagePath);
+                    submit(imagePath);
                 }
             }).start();
             orc_bitmap = comp(BitmapFactory.decodeFile(imagePath)); //压缩图片
@@ -164,6 +206,36 @@ public class ORCActivity888 extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * 提交图文答案
+     *
+     * @param imagePath
+     */
+    private void submit(String imagePath) {
+        File fileDec = new File(imagePath);
+        OkHttpUtils.post().url(Url.UPLOADIMG).addFile("image", fileDec.getName(), fileDec)
+                .build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                ToastUtils.makeText(ORCActivity888.this, e.getMessage());
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                Log.i("TAG", "onResponse: " + response);
+                Gson gson = new Gson();
+            }
+        });
+    }
+
+
+
+
+
+
+
+
     private void upImage(String imagePath) {
         OkHttpClient mOkHttpClent = new OkHttpClient();
         File file = new File(imagePath);
@@ -171,7 +243,6 @@ public class ORCActivity888 extends AppCompatActivity {
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("image", "image.jpg",
                         RequestBody.create(MediaType.parse("image/png"), file));
-
         RequestBody requestBody = builder.build();
 
         Request request = new Request.Builder()
@@ -192,11 +263,12 @@ public class ORCActivity888 extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, final Response response) throws IOException {
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Log.i("TAG", "run: " + response);
                         Toast.makeText(ORCActivity888.this, "成功", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -251,6 +323,7 @@ public class ORCActivity888 extends AppCompatActivity {
             orc_bitmap = null;
         }
     }
+
 
 
     /**

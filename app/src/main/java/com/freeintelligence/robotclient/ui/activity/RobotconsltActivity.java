@@ -37,6 +37,9 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
 import com.iflytek.sunflower.FlowerCollector;
+import com.robot.performlib.action.AIUIAction;
+import com.robot.performlib.action.SpeakAction;
+import com.robot.performlib.action.WakeupAction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -106,6 +109,8 @@ public class RobotconsltActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+//        WakeupAction.AIUIWakeUp(this, 0);
+//        AIUIAction.changeScene(context, AIUIAction.Scene.asr);
         tvThis1.setVisibility(View.GONE);
         tvRobotan2.setVisibility(View.GONE);
         ivMic2.setVisibility(View.GONE);
@@ -133,7 +138,6 @@ public class RobotconsltActivity extends BaseActivity {
                 ivMic.setVisibility(View.GONE);
                 tvRbcon3.setVisibility(View.GONE);
                 ivYinbo.setVisibility(View.VISIBLE);
-
                 onclick();
                 break;
             case R.id.iv_mic2:
@@ -177,6 +181,8 @@ public class RobotconsltActivity extends BaseActivity {
     }
 
     private void onclick() {
+//        SpeakAction.getInstance().speak(context, "您好，很高兴为您服务", "wakeUp");
+
         tvRobotan2.setText("");
         FlowerCollector.onEvent(RobotconsltActivity.this, "iat_recognize");
         mIatResults.clear();
@@ -188,6 +194,8 @@ public class RobotconsltActivity extends BaseActivity {
         } else {
             // showTip("开始");
         }
+
+
     }
 
     private void setParam() {
@@ -569,6 +577,8 @@ public class RobotconsltActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        WakeupAction.AIUISleep(this);
+
         if (null != mTts) {
             mTts.stopSpeaking();
             // 退出时释放连接

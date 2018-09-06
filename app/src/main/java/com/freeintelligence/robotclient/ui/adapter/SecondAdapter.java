@@ -51,7 +51,7 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.SecondView
         long time = carListBean.getTime();
         String dateToString = DateUtils.getDateToString(time, "yyy-MM-dd");
         viewHolder.tvSecond2.setText("上牌时间    "+dateToString);
-        viewHolder.tvSecond3.setText("公里表显里程  "+ PriceUtils.getprice(carListBean.getMileage()));
+        viewHolder.tvSecond3.setText("公里表显里程  "+carListBean.getMileage()+"km");
         viewHolder.tvSecond4.setText("车主报价： "+PriceUtils.getprice(carListBean.getPrice()));
         int isNew = carListBean.getIsNew();
         if(isNew==1){

@@ -86,7 +86,7 @@ public class LoadActivity extends BaseActivity {
                     time.start();
                     starinternet(phone);
                 } else {
-                    showToast(this, "请输入正确的电话号码");
+                    ToastUtils.makeText(context, "请输入正确的电话号码");
                 }
                 break;
             case R.id.tv_load:
@@ -97,11 +97,11 @@ public class LoadActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(vcode)) {
                         starinternets(phone1, vcode);
                     } else {
-                        Toast.makeText(this, "请输入验证码", Toast.LENGTH_SHORT);
+                        ToastUtils.makeText(context, "请输入验证码");
                     }
 
                 } else {
-                    showToast(this, "请输入正确的电话号码");
+                    ToastUtils.makeText(context, "请输入正确的电话号码");
                 }
             case R.id.title_Back:
                 AppManager.finishActivity();

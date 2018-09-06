@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/rectangle"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="@mipmap/rectangle"
     tools:context="com.freeintelligence.robotclient.ui.activity.MainActivity">
-        <include layout="@layout/toolbar"
-            android:visibility="gone"/>
+
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,25 +19,28 @@
         android:layout_marginLeft="18px"
         android:layout_marginRight="18px"
         android:orientation="horizontal">
+
         <LinearLayout
             android:id="@+id/ll_first_item"
             android:layout_width="444px"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_hot"
                 android:layout_width="match_parent"
                 android:layout_height="240px"
                 android:background="@color/colorFirstbg"
                 android:src="@drawable/hotcar" />
+
             <ImageView
                 android:id="@+id/iv_second"
                 android:layout_width="match_parent"
                 android:layout_height="240px"
-                android:background="@color/colorFirstbg"
                 android:layout_marginTop="50px"
+                android:background="@color/colorFirstbg"
                 android:src="@drawable/second" />
         </LinearLayout>
 
@@ -44,18 +50,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="23px"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_service"
                 android:layout_width="match_parent"
                 android:layout_height="240px"
                 android:background="@color/colorFirstbg"
                 android:src="@drawable/service" />
+
             <ImageView
                 android:id="@+id/iv_vip"
                 android:layout_width="match_parent"
                 android:layout_height="240px"
-                android:background="@color/colorFirstbg"
                 android:layout_marginTop="50px"
+                android:background="@color/colorFirstbg"
                 android:padding="6dp"
                 android:src="@drawable/vip" />
         </LinearLayout>
@@ -66,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="23px"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/iv_inspect"
                 android:layout_width="match_parent"
@@ -77,8 +86,8 @@
                 android:id="@+id/iv_subscribe"
                 android:layout_width="match_parent"
                 android:layout_height="240px"
-                android:background="@color/colorFirstbg"
                 android:layout_marginTop="50px"
+                android:background="@color/colorFirstbg"
                 android:src="@drawable/sub" />
 
         </LinearLayout>
@@ -87,8 +96,8 @@
             android:id="@+id/iv_set"
             android:layout_width="241px"
             android:layout_height="530px"
-            android:background="@color/colorFirstbg"
             android:layout_marginLeft="23px"
+            android:background="@color/colorFirstbg"
             android:src="@drawable/group" />
     </LinearLayout>
 
@@ -97,9 +106,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/first_title"
-        android:textColor="@color/colorWhite"
         android:layout_centerInParent="true"
         android:layout_marginBottom="40dp"
+        android:text="@string/first_title"
+        android:textColor="@color/colorWhite"
         android:textSize="28px" />
 </RelativeLayout>

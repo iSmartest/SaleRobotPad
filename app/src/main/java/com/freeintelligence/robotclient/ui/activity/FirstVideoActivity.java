@@ -2,16 +2,13 @@ package com.freeintelligence.robotclient.ui.activity;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.VideoView;
-
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.utils.SPUtil;
@@ -40,6 +37,8 @@ public class FirstVideoActivity extends Activity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+                mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+//                mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT);
                 mp.start();
                 mp.setLooping(true);
             }

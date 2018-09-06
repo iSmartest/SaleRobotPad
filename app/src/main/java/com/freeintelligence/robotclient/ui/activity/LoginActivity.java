@@ -64,7 +64,11 @@ public class LoginActivity extends BaseActivity {
                     ToastUtils.makeText(context,"请输入密码");
                     return;
                 }
-                starinternet(mAccount,mPassword);
+//                starinternet(mAccount,mPassword);
+                SPUtil.putString(context,"storeId","1");
+                Intent intent = new Intent(LoginActivity.this,HotCarSelectActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

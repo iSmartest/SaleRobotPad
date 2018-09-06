@@ -133,7 +133,7 @@ public class TestDriveActivity extends BaseActivity {
                 String time = tvChoosetime.getText().toString();
                 boolean mobileNO = RegexpUtils.isMobileNO(phone);
                 if (mobileNO == false) {
-                    showToast(this, "请输入正确的电话号码");
+                    ToastUtils.makeText(context, "请输入正确的电话号码");
                     return;
                 }
                 if (time.isEmpty()) {

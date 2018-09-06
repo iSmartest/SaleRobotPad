@@ -85,6 +85,7 @@ public class AppManager {
         }
         activityStack.clear();
     }
+
     /**
      * 获取指定的Activity
      *

@@ -16,4 +16,13 @@ public class PriceUtils {
             return value+"万";
         }
     }
+    public static String getMile(double mile){
+        if(mile<1000){
+            return  mile+"米";
+        }else {
+            double v = mile / 1000;
+            double value =new BigDecimal(v).setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+            return value+"千米";
+        }
+    }
 }

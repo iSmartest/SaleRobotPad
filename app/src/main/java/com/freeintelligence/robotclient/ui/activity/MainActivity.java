@@ -1,6 +1,7 @@
 package com.freeintelligence.robotclient.ui.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -44,7 +45,11 @@ public class MainActivity extends BaseActivity{
     protected void initView() {
 
     }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+    }
     //8个控件的点击事件跳转页面
     @OnClick({R.id.title_Back,R.id.iv_hot, R.id.iv_second, R.id.iv_service, R.id.iv_vip, R.id.iv_inspect, R.id.iv_subscribe, R.id.iv_set,R.id.tv_linshi})
     public void onViewClicked(View view) {

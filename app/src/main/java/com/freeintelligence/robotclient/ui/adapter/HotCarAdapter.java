@@ -12,23 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.freeintelligence.robotclient.R;
 import com.freeintelligence.robotclient.ui.activity.ConsultActivity;
-import com.freeintelligence.robotclient.ui.activity.HotcarActivity;
-import com.freeintelligence.robotclient.app.App;
 import com.freeintelligence.robotclient.config.MyString;
 import com.freeintelligence.robotclient.ui.moudel.HotcarBean;
 import com.freeintelligence.robotclient.utils.GlideUtils;
-import com.freeintelligence.robotclient.view.MyRecyclerView;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static com.freeintelligence.robotclient.config.Url.HTTP;
 
 /**
  * Created by za on 2018/6/20.
@@ -70,7 +62,7 @@ public class HotCarAdapter extends RecyclerView.Adapter<HotCarAdapter.HotCarView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ConsultActivity.class);
-                intent.putExtra(MyString.INTENTHOTCAR, carListBean.getId());
+                intent.putExtra(MyString.INTENTHOTCAR, carListBean.getId()+"");
                 intent.putExtra(MyString.CONSULT, 2);
                 context.startActivity(intent);
             }

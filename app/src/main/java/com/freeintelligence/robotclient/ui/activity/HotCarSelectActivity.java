@@ -61,7 +61,6 @@ public class HotCarSelectActivity extends BaseActivity {
                 if (carTypeList != null && !carTypeList.isEmpty() && carTypeList.size() > 0) {
                     mList.addAll(carTypeList);
                 }
-
             }
         });
     }
